@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
+  <rect width="1200" height="900" fill="#F7F4EC"/>
+  <rect x="100" y="120" width="1000" height="660" rx="34" fill="#ffffff" stroke="#DED8CB" stroke-width="4"/>
+  <rect x="150" y="170" width="420" height="560" rx="28" fill="#EDF5F1"/>
+  <rect x="620" y="180" width="310" height="34" rx="17" fill="#0D5C9C"/>
+  <rect x="620" y="250" width="330" height="24" rx="12" fill="#D6E1EB"/>
+  <rect x="620" y="298" width="290" height="24" rx="12" fill="#D6E1EB"/>
+  <rect x="620" y="420" width="360" height="160" rx="26" fill="#FFF7DF"/>
+  <text x="625" y="203" font-size="24" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" fill="#ffffff">景区导览交互界面</text>
+  <text x="625" y="380" font-size="50" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-weight="700" fill="#07111F">路线推荐 Demo</text>
+  <text x="625" y="640" font-size="24" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" fill="#566370">讲解脚本、活动说明、导览问答</text>
+</svg>

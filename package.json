@@ -1,0 +1,20 @@
+{
+  "name": "henghesha-marketplace-workspace",
+  "private": true,
+  "workspaces": [
+    "apps/marketplace-api",
+    "apps/marketplace-web"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "install:all": "npm install --workspaces",
+    "dev:api": "npm --workspace apps/marketplace-api run dev",
+    "dev:web": "npm --workspace apps/marketplace-web run dev",
+    "build:web": "npm --workspace apps/marketplace-web run build",
+    "screenshots:web": "npm --workspace apps/marketplace-web run screenshots",
+    "smoke:api": "npm --workspace apps/marketplace-api run smoke",
+    "verify:marketplace": "cmd /c scripts\\verify-marketplace.cmd"
+  }
+}

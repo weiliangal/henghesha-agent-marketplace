@@ -1,0 +1,33 @@
+localization:
+  transcript_model:
+    provider: placeholder
+    model: placeholder
+    enabled: false
+  tts_model:
+    provider: placeholder
+    model: placeholder
+    enabled: false
+
+runway:
+  core_provider: runway
+  act_two:
+    provider: runway
+    model: placeholder
+  gen4_5:
+    provider: runway
+    model: placeholder
+  gen4:
+    provider: runway
+    model: placeholder
+  lip_sync:
+    provider: runway
+    model: placeholder
+
+classification:
+  enabled: true
+  model: rule_based_v1
+
+fallbacks:
+  no_ffmpeg: degrade_to_metadata_only
+  no_runway: mark_pending_manual
+

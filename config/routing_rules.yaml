@@ -1,0 +1,31 @@
+routes:
+  A1:
+    recommended_runway_path: ACT_TWO
+    fallback_path: LIP_SYNC
+  A2:
+    recommended_runway_path: ACT_TWO
+    fallback_path: GEN4_5
+  B1:
+    recommended_runway_path: MULTI_ROLE_SPLIT
+    fallback_path: GEN4_5
+  B2:
+    recommended_runway_path: MULTI_ROLE_SPLIT
+    fallback_path: GEN4_5
+  C1:
+    recommended_runway_path: ACT_TWO
+    fallback_path: GEN4_5
+  C2:
+    recommended_runway_path: GEN4_5
+    fallback_path: GEN4
+  D1:
+    recommended_runway_path: GEN4
+    fallback_path: ACT_TWO
+  D2:
+    recommended_runway_path: GEN4
+    fallback_path: ACT_TWO
+
+policy:
+  prefer_preserve_story_function: true
+  prefer_us_shot_language: true
+  reject_one_click_episode_generation: true
+  reject_face_swap_as_primary_path: true

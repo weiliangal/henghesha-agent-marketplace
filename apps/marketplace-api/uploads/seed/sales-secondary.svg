@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="180" y1="100" x2="1050" y2="790" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5F8FA"/>
+      <stop offset="0.5" stop-color="#EEF7F5"/>
+      <stop offset="1" stop-color="#FFF4EA"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect x="96" y="112" width="1008" height="676" rx="42" fill="white" stroke="#D8E4EC" stroke-width="3"/>
+  <rect x="144" y="164" width="912" height="88" rx="30" fill="#07111F"/>
+  <rect x="144" y="302" width="262" height="368" rx="28" fill="#ECF6F4"/>
+  <rect x="470" y="302" width="262" height="368" rx="28" fill="#F8F5EE"/>
+  <rect x="796" y="302" width="214" height="368" rx="28" fill="#FFF0E8"/>
+  <text x="186" y="220" fill="white" font-size="30" font-family="Microsoft YaHei, Noto Sans SC, sans-serif">企业售前顾问演示台</text>
+  <text x="188" y="410" fill="#07111F" font-size="34" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-weight="700">需求采集</text>
+  <text x="514" y="410" fill="#07111F" font-size="34" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-weight="700">方案建议</text>
+  <text x="832" y="410" fill="#07111F" font-size="34" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-weight="700">销售推进</text>
+  <text x="188" y="470" fill="#52687D" font-size="22" font-family="Microsoft YaHei, Noto Sans SC, sans-serif">快速理解访客需求与预算方向</text>
+  <text x="514" y="470" fill="#52687D" font-size="22" font-family="Microsoft YaHei, Noto Sans SC, sans-serif">基于行业模板给出建议方案</text>
+  <text x="832" y="470" fill="#52687D" font-size="22" font-family="Microsoft YaHei, Noto Sans SC, sans-serif">推荐下一步动作与人工对接</text>
+</svg>

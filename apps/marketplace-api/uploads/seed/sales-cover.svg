@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="130" y1="110" x2="1060" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#06101D"/>
+      <stop offset="0.52" stop-color="#0E5E88"/>
+      <stop offset="1" stop-color="#FF8740"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="986" cy="176" r="146" fill="white" fill-opacity="0.1"/>
+  <rect x="100" y="118" width="1000" height="664" rx="42" fill="white" fill-opacity="0.1" stroke="white" stroke-opacity="0.18"/>
+  <rect x="150" y="170" width="340" height="560" rx="32" fill="white" fill-opacity="0.12"/>
+  <rect x="186" y="212" width="268" height="18" rx="9" fill="white"/>
+  <rect x="186" y="248" width="224" height="14" rx="7" fill="white" fill-opacity="0.62"/>
+  <rect x="186" y="290" width="268" height="160" rx="28" fill="#13243A" fill-opacity="0.62"/>
+  <rect x="186" y="478" width="128" height="88" rx="22" fill="white" fill-opacity="0.16"/>
+  <rect x="328" y="478" width="126" height="88" rx="22" fill="#FFF4E7"/>
+  <rect x="186" y="590" width="268" height="92" rx="22" fill="white" fill-opacity="0.12"/>
+  <text x="566" y="310" fill="white" font-size="72" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-weight="700">企业售前顾问</text>
+  <text x="566" y="368" fill="white" fill-opacity="0.86" font-size="28" font-family="Microsoft YaHei, Noto Sans SC, sans-serif">官网接待 · 需求澄清 · 方案推荐 · 线索分流</text>
+  <text x="566" y="444" fill="white" fill-opacity="0.74" font-size="22" font-family="Microsoft YaHei, Noto Sans SC, sans-serif">面向官网、公众号、展会大屏与销售助理场景的智能体宣传图。</text>
+  <rect x="566" y="522" width="160" height="48" rx="24" fill="white" fill-opacity="0.16"/>
+  <rect x="744" y="522" width="160" height="48" rx="24" fill="white" fill-opacity="0.16"/>
+  <rect x="922" y="522" width="160" height="48" rx="24" fill="white" fill-opacity="0.16"/>
+  <text x="608" y="554" fill="white" font-size="20" font-family="Microsoft YaHei, Noto Sans SC, sans-serif">线索捕获</text>
+  <text x="787" y="554" fill="white" font-size="20" font-family="Microsoft YaHei, Noto Sans SC, sans-serif">方案匹配</text>
+  <text x="969" y="554" fill="white" font-size="20" font-family="Microsoft YaHei, Noto Sans SC, sans-serif">转人工</text>
+</svg>

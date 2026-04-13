@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Local env
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+dist/
+.vercel/
+apps/**/uploads/*
+!apps/**/uploads/.gitkeep
+!apps/**/uploads/seed/
+!apps/**/uploads/seed/**
+apps/**/data/*.sqlite
+apps/**/data/*.sqlite-*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Generated media and working artifacts
+data/source_video/*
+data/audio/*
+data/transcripts/*
+data/manifests/*
+data/characters/*
+data/scenes/*
+data/exports/*
+data/qc/*
+data/temp/*
+
+# Keep directory placeholders under version control
+!data/**/.gitkeep
+!data/**/.gitignore
+!tests/.gitkeep
+!src/**/.gitkeep
+!config/.gitkeep
+!prompts/**/.gitkeep

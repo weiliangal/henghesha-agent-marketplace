@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="160" y1="120" x2="1010" y2="780" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7F4EC"/>
+      <stop offset="0.52" stop-color="#EEF5F1"/>
+      <stop offset="1" stop-color="#FFF8E8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect x="98" y="112" width="1004" height="676" rx="40" fill="white" stroke="#DED9CF" stroke-width="3"/>
+  <rect x="146" y="164" width="430" height="572" rx="30" fill="#EDF5F1"/>
+  <rect x="624" y="176" width="312" height="38" rx="19" fill="#0D5C9C"/>
+  <rect x="624" y="252" width="334" height="24" rx="12" fill="#D7E2EB"/>
+  <rect x="624" y="300" width="286" height="24" rx="12" fill="#D7E2EB"/>
+  <rect x="624" y="420" width="362" height="168" rx="28" fill="#FFF7DF"/>
+  <text x="625" y="203" font-size="24" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" fill="#ffffff">景区导览交互界面</text>
+  <text x="625" y="384" font-size="52" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-weight="700" fill="#07111F">路线推荐宣传图</text>
+  <text x="625" y="646" font-size="24" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" fill="#566370">讲解脚本、活动说明、路线引导都可在这里展示</text>
+</svg>

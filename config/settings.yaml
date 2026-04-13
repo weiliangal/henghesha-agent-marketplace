@@ -1,0 +1,42 @@
+project:
+  name: short-drama-localizer
+  timezone: Asia/Shanghai
+  source_language: zh-CN
+  target_language: en-US
+  output_language_style: american_shortform
+
+paths:
+  source_video_dir: data/source_video
+  audio_dir: data/audio
+  transcript_dir: data/transcripts
+  manifest_dir: data/manifests
+  character_dir: data/characters
+  scene_dir: data/scenes
+  export_dir: data/exports
+  qc_dir: data/qc
+  temp_dir: data/temp
+
+media:
+  thumbnail_seconds: [0.25, 0.5, 0.75]
+  preferred_container: mp4
+  preferred_video_codec: h264
+  preferred_audio_codec: aac
+
+runtime:
+  log_level: INFO
+  retain_request_payloads: true
+  retain_response_metadata: true
+  allow_partial_retries: true
+
+qc:
+  minimum_total_score: 24
+  per_dimension_minimum: 3
+  dimensions:
+    - story_function_match
+    - performance_similarity
+    - character_consistency
+    - dialogue_naturalness
+    - lip_acceptability
+    - editability
+    - background_lighting_stability
+

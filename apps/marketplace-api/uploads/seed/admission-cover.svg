@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="80" x2="1080" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B3D6D"/>
+      <stop offset="0.55" stop-color="#1A6AA8"/>
+      <stop offset="1" stop-color="#FF9A3D"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="110" y1="130" x2="520" y2="730" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="white" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" rx="40" fill="url(#bg)"/>
+  <g opacity="0.18" stroke="white">
+    <path d="M120 170H1080"/>
+    <path d="M120 270H1080"/>
+    <path d="M120 370H1080"/>
+    <path d="M120 470H1080"/>
+    <path d="M120 570H1080"/>
+    <path d="M120 670H1080"/>
+    <path d="M220 80V820"/>
+    <path d="M420 80V820"/>
+    <path d="M620 80V820"/>
+    <path d="M820 80V820"/>
+    <path d="M1020 80V820"/>
+  </g>
+  <circle cx="968" cy="176" r="150" fill="white" fill-opacity="0.12"/>
+  <circle cx="208" cy="712" r="194" fill="white" fill-opacity="0.08"/>
+  <rect x="110" y="130" width="410" height="600" rx="38" fill="url(#glass)" stroke="white" stroke-opacity="0.24"/>
+  <rect x="148" y="176" width="334" height="506" rx="30" fill="#16304D" fill-opacity="0.48" stroke="white" stroke-opacity="0.16"/>
+  <rect x="182" y="220" width="176" height="18" rx="9" fill="white" fill-opacity="0.9"/>
+  <rect x="182" y="255" width="244" height="14" rx="7" fill="white" fill-opacity="0.58"/>
+  <rect x="182" y="282" width="194" height="14" rx="7" fill="white" fill-opacity="0.4"/>
+  <rect x="182" y="340" width="260" height="122" rx="26" fill="white" fill-opacity="0.12"/>
+  <rect x="182" y="488" width="184" height="68" rx="20" fill="#FFF6EC"/>
+  <rect x="380" y="488" width="62" height="68" rx="20" fill="white" fill-opacity="0.2"/>
+  <rect x="182" y="580" width="260" height="68" rx="20" fill="white" fill-opacity="0.12"/>
+  <text x="598" y="312" fill="white" font-size="72" font-family="Microsoft YaHei, Noto Sans SC, sans-serif" font-weight="700">招生问答助手</text>
+  <text x="598" y="370" fill="white" fill-opacity="0.84" font-size="28" font-family="Microsoft YaHei, Noto Sans SC, sans-serif">教育智能体 · 招生咨询 · 专业推荐 · 线索转化</text>
+  <text x="598" y="446" fill="white" fill-opacity="0.76" font-size="22" font-family="Microsoft YaHei, Noto Sans SC, sans-serif">适用于学校官网、公众号咨询、活动招生页与家长接待场景。</text>
+  <rect x="598" y="524" width="156" height="48" rx="24" fill="white" fill-opacity="0.14" stroke="white" stroke-opacity="0.2"/>
+  <rect x="772" y="524" width="156" height="48" rx="24" fill="white" fill-opacity="0.14" stroke="white" stroke-opacity="0.2"/>
+  <rect x="946" y="524" width="156" height="48" rx="24" fill="white" fill-opacity="0.14" stroke="white" stroke-opacity="0.2"/>
+  <text x="644" y="555" fill="white" font-size="20" font-family="Microsoft YaHei, Noto Sans SC, sans-serif">专业推荐</text>
+  <text x="812" y="555" fill="white" font-size="20" font-family="Microsoft YaHei, Noto Sans SC, sans-serif">报名条件</text>
+  <text x="991" y="555" fill="white" font-size="20" font-family="Microsoft YaHei, Noto Sans SC, sans-serif">预约到访</text>
+  <text x="598" y="650" fill="white" fill-opacity="0.66" font-size="16" letter-spacing="6" font-family="Sora, Arial, sans-serif">ADMISSIONS AI AGENT</text>
+</svg>
