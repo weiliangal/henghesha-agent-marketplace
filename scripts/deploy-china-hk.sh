@@ -39,7 +39,11 @@ echo "[3/6] Preparing persistent directories..."
 mkdir -p deploy/china-hk/data deploy/china-hk/uploads
 
 if [ ! -f "$RUNTIME_ENV" ]; then
-  JWT_SECRET_VALUE="$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c 48)"
+  if command -v openssl >/dev/null 2>&1; then
+    JWT_SECRET_VALUE="$(openssl rand -hex 32)"
+  else
+    JWT_SECRET_VALUE="$(dd if=/dev/urandom bs=32 count=1 2>/dev/null | base64 | tr -d '\n' | tr '/+' 'AZ' | cut -c1-48)"
+  fi
   cat >"$RUNTIME_ENV" <<EOF
 PUBLIC_PORT=80
 CLIENT_ORIGIN=
