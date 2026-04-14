@@ -1,113 +1,134 @@
-# 中国展示版部署说明
+# 中国展示版部署指南
 
-这份文档面向“让中国大陆用户更容易打开演示站”的场景，推荐使用中国香港服务器进行单机部署。
+这份文档用于把“恒河沙智能体交易网”部署到中国香港服务器，做一个中国大陆用户更容易访问的展示版。
 
-## 适用场景
+这套方案适合：
 
-- 你想尽快给中国大陆客户、朋友或合作方展示网站。
-- 你暂时不准备走中国大陆 ICP 备案。
-- 你希望前后端用同一个 IP 或同一个域名访问，避免跨域和多平台部署。
+- 先给客户、朋友、合作方展示网站
+- 先用单台服务器快速上线
+- 先跑通完整站点，再决定是否做大陆正式合规版
 
-这套方案属于“香港展示版”，不是中国大陆正式合规经营版。
+这套方案不等于中国大陆正式商用部署。
+如果后面要长期在中国大陆正式运营，仍建议走大陆服务器、备案、国内模型和对象存储。
 
-## 推荐云服务
+## 当前方案特点
 
-优先选择：
+- 前后端同域部署，不再依赖 Vercel + Render 的跨域链路
+- React 前端先构建，再由 Express 统一对外提供
+- `/api/*` 继续走后端接口
+- `/uploads/*` 继续提供上传文件
+- 演示数据和上传目录持久化到宿主机
+- 支持直接用 Docker 一键拉起
 
-- 腾讯云轻量应用服务器中国香港
-- 阿里云 ECS 中国香港
+## 推荐服务器
 
-公开资料说明，中国大陆网站如果部署在中国大陆服务器，通常需要 ICP 备案；中国香港服务器不属于中国大陆备案范围，更适合快速演示。
+- 腾讯云轻量应用服务器，中国香港
+- 阿里云 ECS，中国香港
 
-参考：
+建议最低配置：
 
-- [腾讯云备案概述](https://cloud.tencent.com/document/product/243)
-- [阿里云备案帮助](https://help.aliyun.com/zh/icp-filing/)
+- 2 核 CPU
+- 2GB 内存
+- 40GB 磁盘
+- 放通 80 端口
 
-## 部署结构
+如果后面要上 HTTPS，再额外放通：
 
-当前仓库已经支持：
+- 443
 
-- 前端构建后由后端同域提供
-- 后端继续提供 `/api/*` 和 `/uploads/*`
-- Docker 单容器运行
-- 使用 SQLite 持久化演示数据
-
-核心文件：
+## 仓库内相关文件
 
 - [Dockerfile.china-hk](C:/Users/william/Documents/New%20project/Dockerfile.china-hk)
 - [docker-compose.china-hk.yml](C:/Users/william/Documents/New%20project/docker-compose.china-hk.yml)
+- [scripts/deploy-china-hk.sh](C:/Users/william/Documents/New%20project/scripts/deploy-china-hk.sh)
 
-## 服务器要求
+## 最快部署方式
 
-- Ubuntu 22.04 或 24.04
-- 至少 2 核 2G
-- 开放端口：`22`, `80`
-
-如果后续要绑定域名并启用 HTTPS，再额外开放：
-
-- `443`
-
-## 部署步骤
-
-### 1. 登录服务器
+### 方式一：登录服务器后执行脚本
 
 ```bash
-ssh root@你的服务器IP
+git clone https://github.com/weiliangal/henghesha-agent-marketplace.git
+cd henghesha-agent-marketplace
+bash scripts/deploy-china-hk.sh
 ```
 
-### 2. 安装 Docker 与 Docker Compose
+脚本会自动完成：
 
-Ubuntu 常见安装方式：
+- 检查 `git`、`docker`、`docker compose`
+- 拉取或更新代码
+- 创建持久化目录
+- 生成运行时环境变量文件
+- 构建并启动容器
+
+默认运行时配置文件会生成在：
+
+```text
+/opt/henghesha-agent-marketplace/deploy/china-hk/runtime.env
+```
+
+### 方式二：手动部署
+
+#### 1. 安装基础依赖
 
 ```bash
 apt update
-apt install -y docker.io docker-compose-v2 git
+apt install -y git docker.io docker-compose-v2
 systemctl enable docker
 systemctl start docker
 ```
 
-### 3. 拉取代码
+#### 2. 拉取代码
 
 ```bash
 git clone https://github.com/weiliangal/henghesha-agent-marketplace.git
 cd henghesha-agent-marketplace
 ```
 
-### 4. 修改部署变量
+#### 3. 准备运行时环境变量
 
-编辑：
+创建文件：
 
 ```bash
-vim docker-compose.china-hk.yml
+mkdir -p deploy/china-hk
+cat > deploy/china-hk/runtime.env <<'EOF'
+PUBLIC_PORT=80
+CLIENT_ORIGIN=
+JWT_SECRET=请换成你自己的随机长字符串
+DATABASE_PATH=./data/marketplace.sqlite
+OPENAI_API_KEY=
+OPENAI_MODEL=gpt-5.2
+EOF
 ```
-
-至少改这两项：
-
-- `JWT_SECRET`
-- `OPENAI_API_KEY`，如果暂时没有可以留空
 
 说明：
 
-- `OPENAI_API_KEY` 留空时，系统会返回本地 mock 结果，适合演示
-- 当前前后端同域部署，不强依赖额外配置 `CLIENT_ORIGIN`
+- `OPENAI_API_KEY` 暂时可以留空，系统会返回本地 mock 结果用于展示
+- `CLIENT_ORIGIN` 留空也没问题，因为当前中国展示版走同域部署
 
-### 5. 启动服务
-
-```bash
-docker compose -f docker-compose.china-hk.yml up -d --build
-```
-
-### 6. 检查运行状态
+#### 4. 启动服务
 
 ```bash
-docker compose -f docker-compose.china-hk.yml ps
-docker compose -f docker-compose.china-hk.yml logs -f
+docker compose -f docker-compose.china-hk.yml --env-file deploy/china-hk/runtime.env up -d --build
 ```
 
-### 7. 访问网站
+#### 5. 查看运行状态
 
-浏览器直接打开：
+```bash
+docker compose -f docker-compose.china-hk.yml --env-file deploy/china-hk/runtime.env ps
+docker compose -f docker-compose.china-hk.yml --env-file deploy/china-hk/runtime.env logs -f
+```
+
+## 腾讯云轻量服务器建议操作
+
+如果你不想手动 SSH，也可以直接用腾讯云控制台里的“执行命令”。
+
+建议顺序：
+
+1. 在“防火墙”里放通 `80`
+2. 在“执行命令”里执行部署命令
+3. 打开下面两个地址检查结果
+
+网站首页：
 
 ```text
 http://你的服务器IP
@@ -121,34 +142,43 @@ http://你的服务器IP/api/health
 
 ## 数据持久化
 
-`docker-compose.china-hk.yml` 已经把这两类数据挂到宿主机：
+宿主机上会保留：
 
-- 数据库：`./deploy/china-hk/data`
-- 上传文件：`./deploy/china-hk/uploads`
+- 数据库目录：`./deploy/china-hk/data`
+- 上传目录：`./deploy/china-hk/uploads`
 
-这样即使容器重建，数据也不会丢。
+即使容器重建，这两部分数据也不会丢。
+
+## 更新部署
+
+如果后面你改了代码，重新登录服务器后执行：
+
+```bash
+cd /opt/henghesha-agent-marketplace
+git pull --ff-only origin main
+bash scripts/deploy-china-hk.sh
+```
 
 ## 绑定域名
 
-如果你后面购买了域名，可以把域名 A 记录解析到中国香港服务器 IP。
+如果后面你买了域名，可以先做最简单的解析：
 
-最简单的两种用法：
+- 给域名添加 A 记录
+- 指向中国香港服务器公网 IP
 
-- 先直接用 `http://域名`
-- 后续再补 `Nginx / Caddy + HTTPS`
+然后访问：
 
-## 生产前建议
+```text
+http://你的域名
+```
 
-如果后面要做正式商用，建议继续升级：
+如果要 HTTPS，再补 Nginx / Caddy / 证书即可。
 
-- 数据库从 SQLite 升级到 MySQL / PostgreSQL
-- 上传文件迁到 COS / OSS
-- AI 从 OpenAI 切到国内模型，例如通义千问或腾讯混元
-- 如果迁到中国大陆服务器，则走 ICP 备案流程
+## 后续正式升级建议
 
-## 当前方案的优势
+如果你决定把展示版升级成更稳的正式版，建议下一步做：
 
-- 比 Vercel + Render 更适合中国大陆演示访问
-- 只需要一台香港服务器
-- 前后端同域，链路简单
-- 迁移成本低，后面还能继续升级到正式版
+- 数据库从 SQLite 升级到 MySQL 或 PostgreSQL
+- 上传文件迁移到 COS / OSS
+- AI 从 OpenAI 迁到国内模型
+- 有大陆正式运营计划时再走备案与合规流程

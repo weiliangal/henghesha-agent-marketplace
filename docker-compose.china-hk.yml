@@ -5,14 +5,14 @@ services:
       dockerfile: Dockerfile.china-hk
     image: henghesha-marketplace:china-hk
     ports:
-      - "80:4000"
+      - "${PUBLIC_PORT:-80}:4000"
     environment:
       PORT: 4000
-      CLIENT_ORIGIN: http://localhost:5173,http://127.0.0.1:5173
-      JWT_SECRET: change-this-before-public-launch
-      DATABASE_PATH: ./data/marketplace.sqlite
-      OPENAI_API_KEY:
-      OPENAI_MODEL: gpt-5.2
+      CLIENT_ORIGIN: ${CLIENT_ORIGIN:-http://localhost:5173,http://127.0.0.1:5173}
+      JWT_SECRET: ${JWT_SECRET:?JWT_SECRET is required}
+      DATABASE_PATH: ${DATABASE_PATH:-./data/marketplace.sqlite}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-5.2}
     volumes:
       - ./deploy/china-hk/data:/app/apps/marketplace-api/data
       - ./deploy/china-hk/uploads:/app/apps/marketplace-api/uploads
