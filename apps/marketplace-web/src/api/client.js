@@ -1,6 +1,10 @@
 import axios from "axios";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:4000/api";
+const explicitApiBaseUrl = import.meta.env.VITE_API_BASE_URL?.trim();
+const fallbackApiBaseUrl =
+  typeof window !== "undefined" ? new URL("/api", window.location.origin).toString() : "http://localhost:4000/api";
+
+const API_BASE_URL = explicitApiBaseUrl || fallbackApiBaseUrl;
 const API_ORIGIN = API_BASE_URL.replace(/\/api\/?$/, "");
 
 const client = axios.create({

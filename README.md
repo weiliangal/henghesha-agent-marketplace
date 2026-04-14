@@ -24,6 +24,7 @@ It is fully isolated under `apps/` and does not modify the shot pipeline contrac
 - Full platform docs: [docs/henghesha-platform.md](C:/Users/william/Documents/New%20project/docs/henghesha-platform.md)
 - API reference: [docs/api-reference.md](C:/Users/william/Documents/New%20project/docs/api-reference.md)
 - Deployment guide: [docs/deploy-vercel-railway.md](C:/Users/william/Documents/New%20project/docs/deploy-vercel-railway.md)
+- China display deployment: [docs/deploy-china-hk.md](C:/Users/william/Documents/New%20project/docs/deploy-china-hk.md)
 
 ## Marketplace Tech Stack
 
