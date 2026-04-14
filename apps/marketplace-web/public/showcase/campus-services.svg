@@ -1,0 +1,27 @@
+<svg width="1600" height="1080" viewBox="0 0 1600 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1080" fill="#F5F7FA"/>
+  <rect x="80" y="80" width="1440" height="920" rx="36" fill="#FFFFFF" stroke="#D8E0E8" stroke-width="4"/>
+  <rect x="132" y="132" width="520" height="816" rx="28" fill="#F8FBFE"/>
+  <rect x="132" y="132" width="520" height="188" rx="28" fill="#205D94"/>
+  <rect x="184" y="392" width="408" height="64" rx="18" fill="#FFFFFF"/>
+  <rect x="184" y="492" width="352" height="16" rx="8" fill="#C7D3DE"/>
+  <rect x="184" y="532" width="308" height="16" rx="8" fill="#D7E0E8"/>
+  <rect x="184" y="608" width="182" height="50" rx="25" fill="#205D94"/>
+  <rect x="388" y="608" width="166" height="50" rx="25" fill="#EAF2F9"/>
+  <rect x="740" y="152" width="676" height="312" rx="28" fill="#F8FBFE" stroke="#DCE4EC" stroke-width="3"/>
+  <rect x="786" y="214" width="178" height="38" rx="19" fill="#EAF2F9"/>
+  <rect x="786" y="292" width="340" height="24" rx="12" fill="#203548"/>
+  <rect x="786" y="338" width="488" height="16" rx="8" fill="#B8C5D0"/>
+  <rect x="786" y="378" width="446" height="16" rx="8" fill="#D2DAE2"/>
+  <rect x="786" y="520" width="290" height="176" rx="26" fill="#EEF5EC"/>
+  <rect x="1100" y="520" width="316" height="176" rx="26" fill="#F6EFE5"/>
+  <rect x="786" y="724" width="630" height="172" rx="28" fill="#F7F9FC"/>
+  <text x="182" y="806" fill="#17202B" font-family="DM Sans, sans-serif" font-size="60" font-weight="700">Campus Service Desk</text>
+  <text x="182" y="856" fill="#5E6B78" font-family="DM Sans, sans-serif" font-size="28">Unified support flow for admissions, service requests and campus guidance</text>
+  <text x="786" y="188" fill="#205D94" font-family="DM Sans, sans-serif" font-size="22" font-weight="700" letter-spacing="4">EDU OPERATIONS</text>
+  <text x="818" y="576" fill="#4D7C57" font-family="DM Sans, sans-serif" font-size="22" font-weight="700">Knowledge Desk</text>
+  <text x="818" y="616" fill="#5E6B78" font-family="DM Sans, sans-serif" font-size="24">FAQs, policy notes and service workflow</text>
+  <text x="1134" y="576" fill="#8B6D4A" font-family="DM Sans, sans-serif" font-size="22" font-weight="700">Request Routing</text>
+  <text x="1134" y="616" fill="#5E6B78" font-family="DM Sans, sans-serif" font-size="24">Human handoff and ticket coordination</text>
+  <text x="818" y="786" fill="#203548" font-family="DM Sans, sans-serif" font-size="24" font-weight="700">Structured showcase card for a school-facing assistant</text>
+</svg>

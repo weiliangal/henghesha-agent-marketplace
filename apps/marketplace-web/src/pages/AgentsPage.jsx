@@ -11,8 +11,8 @@ import SectionHeader from "../components/SectionHeader";
 const categories = ["全部", "教育", "企业", "文旅", "定制"];
 const priceRanges = [
   { value: "all", label: "全部价格" },
-  { value: "0-100000", label: "10 万以下" },
-  { value: "100000-150000", label: "10-15 万" },
+  { value: "0-100000", label: "10 万以内" },
+  { value: "100000-150000", label: "10 - 15 万" },
   { value: "150000-999999999", label: "15 万以上" },
 ];
 
@@ -80,16 +80,16 @@ export default function AgentsPage() {
 
   return (
     <section className="section-shell">
-      <div className="hero-panel p-6 sm:p-8 lg:p-10">
-        <div className="relative z-10 grid gap-8 xl:grid-cols-[1.05fr_0.95fr] xl:items-end">
+      <div className="hero-panel p-7 sm:p-8 lg:p-10">
+        <div className="grid gap-8 xl:grid-cols-[1.05fr_0.95fr] xl:items-end">
           <div>
             <SectionHeader
-              eyebrow="智能体库"
-              title="像国际产品目录一样清晰地浏览、比较和筛选智能体"
-              description="这里集中展示已审核上线的智能体。你可以按行业、价格区间和关键词快速比较，也可以先去模板中心再回来绑定具体方案。"
+              eyebrow="项目广场"
+              title="像成熟 B2B 平台一样浏览、比较和筛选智能体项目"
+              description="这里集中展示平台已审核上线的项目。你可以按行业、价格区间和关键词快速筛选，也可以先从模板中心进入采购入口。"
               action={
                 <Link to="/templates" className="button-secondary">
-                  去模板中心
+                  前往模板中心
                 </Link>
               }
             />
@@ -97,25 +97,25 @@ export default function AgentsPage() {
 
           <div className="grid gap-4 sm:grid-cols-3">
             <InfoTile label="当前结果" value={`${filtered.length}`} />
-            <InfoTile label="推荐项目" value={`${filtered.filter((item) => item.featured).length}`} />
-            <InfoTile label="均价参考" value={averagePrice ? `¥${averagePrice.toLocaleString("zh-CN")}` : "--"} />
+            <InfoTile label="平台推荐" value={`${filtered.filter((item) => item.featured).length}`} />
+            <InfoTile label="平均预算" value={averagePrice ? `¥${averagePrice.toLocaleString("zh-CN")}` : "--"} />
           </div>
         </div>
       </div>
 
       <div className="mt-8 section-tint p-5 sm:p-6">
-        <div className="relative z-10 grid gap-5 lg:grid-cols-[1fr_220px] xl:grid-cols-[1fr_220px_220px_220px]">
+        <div className="grid gap-5 lg:grid-cols-[1fr_220px] xl:grid-cols-[1fr_220px_220px_220px]">
           <div className="relative">
             <Search className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-ink/32" size={18} />
             <input
               value={search}
               onChange={(event) => setSearch(event.target.value)}
-              placeholder="搜索教育、企业、文旅或定制智能体"
+              placeholder="搜索项目名称、适用场景或能力关键词"
               className="input-base pl-11"
             />
           </div>
 
-          <div className="flex items-center gap-2 rounded-[1.35rem] border border-white/80 bg-white/82 px-4 py-3 text-sm font-medium text-ink/62">
+          <div className="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-ink/62">
             <SlidersHorizontal size={16} />
             共 {filtered.length} 个结果
           </div>
@@ -129,19 +129,21 @@ export default function AgentsPage() {
           </select>
 
           <select className="input-base" value={sortMode} onChange={(event) => setSortMode(event.target.value)}>
-            <option value="latest">按最新上架</option>
+            <option value="latest">按最新上线</option>
             <option value="price-asc">价格从低到高</option>
             <option value="price-desc">价格从高到低</option>
           </select>
         </div>
 
-        <div className="relative z-10 mt-5 flex flex-wrap gap-3">
+        <div className="mt-5 flex flex-wrap gap-3">
           {categories.map((item) => (
             <button
               key={item}
               type="button"
               onClick={() => setCategory(item)}
-              className={`pill-filter ${category === item ? "bg-ink text-white" : "border border-white/80 bg-white/82 text-ink/68 hover:text-ink"}`}
+              className={`pill-filter ${
+                category === item ? "border-ink bg-ink text-white" : "border-slate-200 bg-white text-ink/66 hover:text-ink"
+              }`}
             >
               {item}
             </button>
@@ -157,8 +159,8 @@ export default function AgentsPage() {
         ) : (
           <div className="md:col-span-2 xl:col-span-3">
             <EmptyState
-              title="没有找到匹配的智能体"
-              description="可以调整关键词、切换分类和价格区间，或者先去模板中心看看更合适的标准方案。"
+              title="没有找到匹配的项目"
+              description="可以调整关键词、切换分类和价格区间，或直接前往模板中心寻找更合适的标准方案。"
               action={
                 <Link to="/templates" className="button-primary">
                   查看模板中心
@@ -193,18 +195,18 @@ export default function AgentsPage() {
       <div className="mt-12 grid gap-5 lg:grid-cols-3">
         <SubtleNote
           icon={<Sparkles size={17} />}
-          title="统一的卡片结构"
-          text="分类、供给方、价格、审核状态和详情入口都保持一致，便于企业快速比较。"
+          title="统一项目结构"
+          text="分类、提供方、价格、审核状态和详情入口保持一致，便于企业客户快速比较。"
         />
         <SubtleNote
           icon={<SlidersHorizontal size={17} />}
-          title="更成熟的筛选面板"
-          text="搜索、分类、价格区间和排序集中在一层里，页面更接近真实 SaaS 产品目录。"
+          title="清晰的筛选入口"
+          text="把搜索、分类、价格区间和排序集中在同一层，提升目录浏览效率。"
         />
         <SubtleNote
           icon={<Blocks size={17} />}
-          title="先模板后绑定"
-          text="如果一时拿不准具体智能体，也可以先从模板中心选方案，再回来绑定现货项目。"
+          title="支持模板采购"
+          text="如果暂时没有明确项目，也可以先用模板进入采购流程，再继续绑定具体方案。"
         />
       </div>
     </section>
@@ -213,7 +215,7 @@ export default function AgentsPage() {
 
 function InfoTile({ label, value }) {
   return (
-    <div className="glass-card p-5">
+    <div className="surface-panel p-5">
       <div className="text-sm text-ink/52">{label}</div>
       <div className="mt-3 font-display text-3xl font-semibold text-ink">{value}</div>
     </div>
@@ -222,7 +224,7 @@ function InfoTile({ label, value }) {
 
 function SubtleNote({ icon, title, text }) {
   return (
-    <div className="glass-card p-5">
+    <div className="surface-panel p-5">
       <div className="flex items-center gap-2 text-sm font-semibold text-ink">
         <span className="text-sky">{icon}</span>
         {title}

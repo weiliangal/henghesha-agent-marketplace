@@ -1,0 +1,27 @@
+<svg width="1600" height="1080" viewBox="0 0 1600 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1080" fill="#F5F8FA"/>
+  <rect x="84" y="84" width="1432" height="912" rx="36" fill="#FFFFFF" stroke="#DAE3EA" stroke-width="4"/>
+  <rect x="132" y="132" width="576" height="816" rx="28" fill="#F8FBFD"/>
+  <rect x="132" y="132" width="576" height="194" rx="28" fill="#244D79"/>
+  <rect x="188" y="394" width="438" height="64" rx="18" fill="#FFFFFF"/>
+  <rect x="188" y="492" width="382" height="16" rx="8" fill="#C1CFDB"/>
+  <rect x="188" y="532" width="334" height="16" rx="8" fill="#D3DDE6"/>
+  <rect x="188" y="612" width="192" height="50" rx="25" fill="#244D79"/>
+  <rect x="404" y="612" width="176" height="50" rx="25" fill="#EAF1F7"/>
+  <rect x="760" y="158" width="636" height="294" rx="28" fill="#F8FBFD" stroke="#DCE5EC" stroke-width="3"/>
+  <rect x="812" y="220" width="176" height="38" rx="19" fill="#EAF1F7"/>
+  <rect x="812" y="300" width="336" height="24" rx="12" fill="#203548"/>
+  <rect x="812" y="346" width="474" height="16" rx="8" fill="#B9C7D2"/>
+  <rect x="812" y="388" width="428" height="16" rx="8" fill="#D1DBE4"/>
+  <rect x="760" y="494" width="296" height="198" rx="26" fill="#EEF3F6"/>
+  <rect x="1082" y="494" width="314" height="198" rx="26" fill="#EEF5EC"/>
+  <rect x="760" y="720" width="636" height="176" rx="28" fill="#F8FAFC"/>
+  <text x="188" y="806" fill="#17202B" font-family="DM Sans, sans-serif" font-size="62" font-weight="700">Service Console</text>
+  <text x="188" y="856" fill="#5E6B78" font-family="DM Sans, sans-serif" font-size="28">A neutral visual for business support, delivery tracking and service handoff</text>
+  <text x="812" y="198" fill="#244D79" font-family="DM Sans, sans-serif" font-size="22" font-weight="700" letter-spacing="4">SERVICE PLATFORM</text>
+  <text x="792" y="550" fill="#4E6C86" font-family="DM Sans, sans-serif" font-size="22" font-weight="700">Operations Board</text>
+  <text x="792" y="590" fill="#5E6B78" font-family="DM Sans, sans-serif" font-size="24">Task routing, response plans and service delivery</text>
+  <text x="1112" y="550" fill="#4D7C57" font-family="DM Sans, sans-serif" font-size="22" font-weight="700">Workflow Notes</text>
+  <text x="1112" y="590" fill="#5E6B78" font-family="DM Sans, sans-serif" font-size="24">Milestones, updates and platform coordination</text>
+  <text x="792" y="786" fill="#203548" font-family="DM Sans, sans-serif" font-size="24" font-weight="700">Useful as a fallback visual for project, template or order-related cards</text>
+</svg>

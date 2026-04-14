@@ -1,4 +1,4 @@
-import { ImageOff } from "lucide-react";
+﻿import { ImageOff } from "lucide-react";
 import { useState } from "react";
 
 import { resolveAssetUrl } from "../api/client";
@@ -9,9 +9,7 @@ export default function SmartImage({ src, alt, className = "", fallbackClassName
 
   if (!resolvedSrc || failed) {
     return (
-      <div
-        className={`flex items-center justify-center bg-gradient-to-br from-sky/15 via-white to-ember/15 text-ink/45 ${fallbackClassName || className}`}
-      >
+      <div className={`flex items-center justify-center bg-slate-100 text-ink/45 ${fallbackClassName || className}`}>
         <div className="flex flex-col items-center gap-2 text-center">
           <ImageOff size={20} />
           <span className="text-xs font-medium tracking-[0.2em] uppercase">{label}</span>

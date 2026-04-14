@@ -1,13 +1,11 @@
 import {
   ArrowRight,
-  BadgeCheck,
   Blocks,
   Building2,
   LogOut,
   Menu,
   Package2,
   ShieldCheck,
-  Sparkles,
   UserCircle2,
   X,
 } from "lucide-react";
@@ -18,37 +16,37 @@ import { useAuth } from "../context/AuthContext";
 
 const primaryNav = [
   { to: "/", label: "首页" },
-  { to: "/agents", label: "智能体库" },
+  { to: "/agents", label: "项目广场" },
   { to: "/templates", label: "模板中心" },
   { to: "/cases", label: "成功案例" },
 ];
 
 const metaByPath = [
-  { match: /^\/$/, title: "恒河沙智能体交易网", description: "连接高校与企业的智能体成果展示、交易、定制与交付平台。" },
-  { match: /^\/agents$/, title: "智能体库 | 恒河沙智能体交易网", description: "浏览已审核上线的智能体，按分类、价格区间和关键词快速筛选。" },
-  { match: /^\/templates$/, title: "模板中心 | 恒河沙智能体交易网", description: "从标准模板快速启动企业采购或定制开发项目。" },
-  { match: /^\/agents\/\d+$/, title: "智能体详情 | 恒河沙智能体交易网", description: "查看智能体能力、价格、案例素材和下单入口。" },
-  { match: /^\/cases$/, title: "成功案例 | 恒河沙智能体交易网", description: "通过 Demo 与行业案例了解智能体适用场景与交付方式。" },
-  { match: /^\/auth$/, title: "登录 / 注册 | 恒河沙智能体交易网", description: "学校、企业与管理员统一登录入口。" },
-  { match: /^\/enterprise\/orders\/new$/, title: "发布订单 | 恒河沙智能体交易网", description: "企业提交采购需求、附件与交付要求。" },
-  { match: /^\/school\/upload$/, title: "学校工作台 | 恒河沙智能体交易网", description: "上传智能体、编辑资料、查看收到的订单请求。" },
-  { match: /^\/orders$/, title: "订单中心 | 恒河沙智能体交易网", description: "统一查看订单状态、支付进度与交付动态。" },
-  { match: /^\/profile$/, title: "用户中心 | 恒河沙智能体交易网", description: "管理个人资料、安全设置与系统通知。" },
-  { match: /^\/admin$/, title: "管理后台 | 恒河沙智能体交易网", description: "审核智能体、订单与用户状态。" },
+  { match: /^\/$/, title: "恒河沙智能体交易网", description: "连接高校团队与企业客户的智能体成果展示、采购、定制与交付协作平台。" },
+  { match: /^\/agents$/, title: "项目广场 | 恒河沙智能体交易网", description: "浏览平台已审核上线的智能体项目，按行业、价格与应用场景进行筛选。" },
+  { match: /^\/templates$/, title: "模板中心 | 恒河沙智能体交易网", description: "通过标准模板快速发起企业采购或定制需求，降低立项与评估成本。" },
+  { match: /^\/cases$/, title: "成功案例 | 恒河沙智能体交易网", description: "通过真实场景案例了解智能体项目的落地方式、交付边界与合作模式。" },
+  { match: /^\/agents\/\d+$/, title: "项目详情 | 恒河沙智能体交易网", description: "查看项目能力、适用场景、案例素材、报价与采购入口。" },
+  { match: /^\/auth$/, title: "登录 / 注册 | 恒河沙智能体交易网", description: "高校团队、企业客户与平台管理员统一登录入口。" },
+  { match: /^\/enterprise\/orders\/new$/, title: "提交企业需求 | 恒河沙智能体交易网", description: "发布企业采购或定制需求，明确预算、交付周期与业务目标。" },
+  { match: /^\/school\/upload$/, title: "高校团队入驻 | 恒河沙智能体交易网", description: "上传智能体成果、补充案例资料并进入平台审核流程。" },
+  { match: /^\/orders$/, title: "订单中心 | 恒河沙智能体交易网", description: "统一查看订单状态、支付进度、交付节点与协作记录。" },
+  { match: /^\/profile$/, title: "用户中心 | 恒河沙智能体交易网", description: "管理个人资料、账号安全和平台通知。" },
+  { match: /^\/admin$/, title: "管理后台 | 恒河沙智能体交易网", description: "审核项目、订单与支付状态，维护平台内容质量与交易秩序。" },
 ];
 
 function roleLabel(role) {
   return {
-    admin: "管理员",
-    school: "学校",
-    enterprise: "企业",
+    admin: "平台管理",
+    school: "高校团队",
+    enterprise: "企业客户",
   }[role] || "访客";
 }
 
 function roleActions(user, isAuthenticated) {
   return [
     user?.role === "enterprise" ? { to: "/enterprise/orders/new", label: "发布需求" } : null,
-    user?.role === "school" ? { to: "/school/upload", label: "学校工作台" } : null,
+    user?.role === "school" ? { to: "/school/upload", label: "团队入驻" } : null,
     isAuthenticated ? { to: "/orders", label: "订单中心" } : null,
     user?.role === "admin" ? { to: "/admin", label: "管理后台" } : null,
   ].filter(Boolean);
@@ -75,114 +73,112 @@ export default function AppShell() {
 
   return (
     <div className="min-h-screen">
-      <div className="border-b border-white/40 bg-aurora text-white">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-2 text-xs sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 tracking-[0.24em] text-white/72">
-            <Sparkles size={14} />
-            HENGHESHA AGENT MARKETPLACE
+      <div className="border-b border-slate-200 bg-white/90">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 text-xs text-ink/58 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="section-label">高校成果转化平台</span>
+            <span className="hidden md:inline">面向教育科技与企业服务的智能体展示、采购与交付协作平台</span>
           </div>
-          <div className="hidden items-center gap-6 text-white/68 md:flex">
-            <span>高校成果商品化</span>
-            <span>企业采购转化</span>
-            <span>模板选型与定制交付</span>
+          <div className="hidden items-center gap-5 md:flex">
+            <span>项目审核机制</span>
+            <span>企业需求协同</span>
+            <span>模板化采购入口</span>
           </div>
         </div>
       </div>
 
-      <header className="sticky top-0 z-50 px-3 pt-3 sm:px-5">
-        <div className="mx-auto max-w-7xl">
-          <div className="glass-card flex items-center justify-between gap-4 rounded-[1.8rem] px-4 py-3 sm:px-5">
-            <div className="flex items-center gap-3">
-              <button
-                type="button"
-                aria-label="切换菜单"
-                onClick={() => setMobileOpen((value) => !value)}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-ink/10 bg-white/88 text-ink md:hidden"
-              >
-                {mobileOpen ? <X size={18} /> : <Menu size={18} />}
-              </button>
+      <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              aria-label="切换菜单"
+              onClick={() => setMobileOpen((value) => !value)}
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-ink md:hidden"
+            >
+              {mobileOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
 
-              <NavLink to="/" className="group flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white shadow-[0_18px_36px_rgba(9,20,38,0.16)]">
-                  <img src="/favicon.svg" alt="恒河沙智能体交易网" className="h-9 w-9" />
-                </div>
-                <div>
-                  <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-ink/40">Marketplace</div>
-                  <div className="font-display text-lg font-semibold tracking-tight text-ink sm:text-xl">恒河沙智能体交易网</div>
-                </div>
-              </NavLink>
-            </div>
-
-            <nav className="hidden items-center gap-2 rounded-full border border-white/70 bg-white/68 p-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.7)] md:flex">
-              {primaryNav.map((item) => (
-                <AppNavLink key={item.to} to={item.to}>
-                  {item.label}
-                </AppNavLink>
-              ))}
-              {secondaryNav.map((item) => (
-                <AppNavLink key={item.to} to={item.to}>
-                  {item.label}
-                </AppNavLink>
-              ))}
-            </nav>
-
-            <div className="flex items-center gap-2 sm:gap-3">
-              {isAuthenticated ? (
-                <>
-                  <div className="hidden items-center gap-3 rounded-full border border-white/80 bg-white/82 px-3 py-2 md:flex">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-mist text-sky">
-                      <UserCircle2 size={18} />
-                    </div>
-                    <div className="leading-tight">
-                      <div className="text-sm font-semibold text-ink">{user.fullName}</div>
-                      <div className="text-xs uppercase tracking-[0.22em] text-ink/45">{roleLabel(user.role)}</div>
-                    </div>
-                  </div>
-                  <NavLink
-                    to="/profile"
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/80 bg-white/82 text-ink transition hover:text-sky"
-                    aria-label="用户中心"
-                  >
-                    <UserCircle2 size={18} />
-                  </NavLink>
-                  <button
-                    type="button"
-                    onClick={logout}
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/80 bg-white/82 text-ink transition hover:text-ember"
-                    aria-label="退出登录"
-                  >
-                    <LogOut size={18} />
-                  </button>
-                </>
-              ) : (
-                <NavLink to="/auth" className="button-primary">
-                  登录 / 注册
-                </NavLink>
-              )}
-            </div>
+            <NavLink to="/" className="group flex items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50">
+                <img src="/favicon.svg" alt="恒河沙智能体交易网" className="h-9 w-9" />
+              </div>
+              <div>
+                <div className="text-[11px] font-semibold uppercase tracking-[0.24em] text-ink/40">Henghesha Marketplace</div>
+                <div className="font-display text-lg font-semibold tracking-tight text-ink sm:text-xl">恒河沙智能体交易网</div>
+              </div>
+            </NavLink>
           </div>
 
-          {mobileOpen ? (
-            <div className="glass-card mt-3 rounded-[1.8rem] p-4 md:hidden">
-              <div className="grid gap-2">
-                {[...primaryNav, ...secondaryNav].map((item) => (
-                  <NavLink
-                    key={item.to}
-                    to={item.to}
-                    onClick={() => setMobileOpen(false)}
-                    className={({ isActive }) =>
-                      `rounded-2xl px-4 py-3 text-sm font-semibold transition ${
-                        isActive ? "bg-ink text-white" : "bg-white/86 text-ink/72"
-                      }`
-                    }
-                  >
-                    {item.label}
-                  </NavLink>
-                ))}
-              </div>
-            </div>
-          ) : null}
+          <nav className="hidden items-center gap-2 md:flex">
+            {primaryNav.map((item) => (
+              <AppNavLink key={item.to} to={item.to}>
+                {item.label}
+              </AppNavLink>
+            ))}
+            {secondaryNav.map((item) => (
+              <AppNavLink key={item.to} to={item.to}>
+                {item.label}
+              </AppNavLink>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-2 sm:gap-3">
+            {isAuthenticated ? (
+              <>
+                <div className="hidden items-center gap-3 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 md:flex">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-sky shadow-sm">
+                    <UserCircle2 size={18} />
+                  </div>
+                  <div className="leading-tight">
+                    <div className="text-sm font-semibold text-ink">{user.fullName}</div>
+                    <div className="text-xs uppercase tracking-[0.18em] text-ink/42">{roleLabel(user.role)}</div>
+                  </div>
+                </div>
+                <NavLink
+                  to="/profile"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-ink transition hover:text-sky"
+                  aria-label="用户中心"
+                >
+                  <UserCircle2 size={18} />
+                </NavLink>
+                <button
+                  type="button"
+                  onClick={logout}
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-ink transition hover:text-ember"
+                  aria-label="退出登录"
+                >
+                  <LogOut size={18} />
+                </button>
+              </>
+            ) : (
+              <NavLink to="/auth" className="button-primary">
+                登录 / 注册
+              </NavLink>
+            )}
+          </div>
         </div>
+
+        {mobileOpen ? (
+          <div className="border-t border-slate-200 bg-white px-4 py-4 md:hidden">
+            <div className="grid gap-2">
+              {[...primaryNav, ...secondaryNav].map((item) => (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => setMobileOpen(false)}
+                  className={({ isActive }) =>
+                    `rounded-2xl px-4 py-3 text-sm font-semibold transition ${
+                      isActive ? "bg-ink text-white" : "border border-slate-200 bg-slate-50 text-ink/72"
+                    }`
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              ))}
+            </div>
+          </div>
+        ) : null}
       </header>
 
       <main>
@@ -191,60 +187,54 @@ export default function AppShell() {
         </div>
       </main>
 
-      <footer className="mt-20 pb-10">
-        <div className="section-shell pb-6">
-          <div className="hero-panel p-8 md:p-10">
-            <div className="relative z-10 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+      <footer className="mt-16 border-t border-slate-200 bg-white">
+        <div className="section-shell py-12">
+          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+            <div>
+              <div className="section-label">平台说明</div>
+              <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink">
+                让高校智能体成果以更可靠的方式进入企业场景
+              </h2>
+              <p className="mt-4 max-w-2xl text-base leading-8 text-ink/66">
+                平台围绕项目展示、采购决策、需求提交、审核上线与订单协作建立统一入口，帮助高校团队更规范地对外呈现成果，
+                也帮助企业客户更高效地完成筛选、采购与沟通。
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                <NavLink to="/agents" className="button-primary">
+                  浏览项目广场
+                </NavLink>
+                <NavLink to="/enterprise/orders/new" className="button-secondary">
+                  提交企业需求
+                  <ArrowRight size={16} className="ml-2" />
+                </NavLink>
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <FooterStat icon={<Package2 size={18} />} title="项目展示" text="围绕案例、适用场景、交付方式与报价体系组织内容。" />
+              <FooterStat icon={<Blocks size={18} />} title="模板采购" text="企业可从标准模板切入，再延展为定制化项目。" />
+              <FooterStat icon={<Building2 size={18} />} title="企业服务" text="支持需求提交、订单流转、支付确认与交付跟踪。" />
+              <FooterStat icon={<ShieldCheck size={18} />} title="平台审核" text="建立统一审核机制，提升上线内容质量与可信度。" />
+            </div>
+          </div>
+
+          <div className="soft-divider mt-10 pt-8">
+            <div className="grid gap-8 lg:grid-cols-[1.3fr_0.7fr]">
               <div>
-                <div className="data-chip">
-                  <BadgeCheck size={16} />
-                  Ready To Launch
-                </div>
-                <h2 className="mt-5 max-w-3xl font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">
-                  让高校智能体成果从展示页，真正走向交易与交付
-                </h2>
-                <p className="mt-4 max-w-2xl text-base leading-8 text-ink/68">
-                  平台把学校上传、企业采购、模板选型、管理员审核和手动支付确认串成一条完整链路，
-                  让展示、信任与成交发生在同一个站点里。
+                <div className="font-display text-lg font-semibold text-ink">恒河沙智能体交易网</div>
+                <p className="mt-3 max-w-2xl text-sm leading-7 text-ink/60">
+                  面向高校团队、企业客户与平台管理者的智能体成果展示与服务协作平台。当前版本支持项目广场、
+                  模板中心、企业需求提交、高校团队入驻与订单管理等核心链路。
                 </p>
               </div>
 
               <div className="grid gap-3 sm:grid-cols-2">
-                <FooterStat icon={<Package2 size={18} />} title="智能体库" text="推荐、筛选、详情、案例与价格体系统一呈现" />
-                <FooterStat icon={<Blocks size={18} />} title="模板中心" text="先选择标准模板，再延展成企业定制方案" />
-                <FooterStat icon={<Building2 size={18} />} title="企业采购" text="浏览现货、下单定制、提交支付回执与状态追踪" />
-                <FooterStat icon={<ShieldCheck size={18} />} title="审核闭环" text="学校上传后进入审核，管理员确认上线与支付状态" />
+                <FooterMiniLink to="/agents" label="项目广场" description="浏览已上线项目" />
+                <FooterMiniLink to="/templates" label="模板中心" description="按模板快速采购" />
+                <FooterMiniLink to="/cases" label="成功案例" description="了解落地场景" />
+                <FooterMiniLink to="/school/upload" label="高校入驻" description="提交团队与项目" />
               </div>
-            </div>
-
-            <div className="mt-6 flex flex-wrap gap-3">
-              <NavLink to="/agents" className="button-primary">
-                浏览智能体
-              </NavLink>
-              <NavLink to="/templates" className="button-secondary">
-                查看模板
-              </NavLink>
-              <NavLink to="/enterprise/orders/new" className="button-secondary">
-                发起定制
-                <ArrowRight size={16} className="ml-2" />
-              </NavLink>
-            </div>
-          </div>
-
-          <div className="mt-8 grid gap-8 lg:grid-cols-[1.25fr_0.75fr]">
-            <div>
-              <div className="font-display text-lg font-semibold text-ink">恒河沙智能体交易网</div>
-              <p className="mt-3 max-w-2xl text-sm leading-7 text-ink/64">
-                面向高校、企业与平台管理员的智能体交易网站。我们把国际 SaaS 的清爽感和 AI
-                产品的未来感结合起来，做成一个真正像成品而不是原型的交易平台。
-              </p>
-            </div>
-
-            <div className="grid gap-3 sm:grid-cols-2">
-              <FooterMiniLink to="/agents" label="智能体库" description="查看全部智能体" />
-              <FooterMiniLink to="/templates" label="模板中心" description="先选模板再定制" />
-              <FooterMiniLink to="/cases" label="成功案例" description="浏览 Demo 与场景说明" />
-              <FooterMiniLink to="/orders" label="订单中心" description="查看交易状态与流转" />
             </div>
           </div>
         </div>
@@ -258,8 +248,8 @@ function AppNavLink({ to, children }) {
     <NavLink
       to={to}
       className={({ isActive }) =>
-        `rounded-full px-4 py-2.5 text-sm font-semibold transition ${
-          isActive ? "bg-ink text-white shadow-[0_12px_28px_rgba(7,17,31,0.18)]" : "text-ink/70 hover:text-ink"
+        `rounded-full px-4 py-2.5 text-sm font-medium transition ${
+          isActive ? "bg-slate-100 text-ink" : "text-ink/64 hover:text-ink"
         }`
       }
     >
@@ -270,21 +260,21 @@ function AppNavLink({ to, children }) {
 
 function FooterStat({ icon, title, text }) {
   return (
-    <div className="rounded-[1.6rem] border border-white/80 bg-white/76 p-4">
+    <div className="rounded-[22px] border border-slate-200 bg-slate-50/90 p-5">
       <div className="flex items-center gap-2 text-sm font-semibold text-ink">
         <span className="text-sky">{icon}</span>
         {title}
       </div>
-      <p className="mt-3 text-sm leading-6 text-ink/66">{text}</p>
+      <p className="mt-3 text-sm leading-7 text-ink/60">{text}</p>
     </div>
   );
 }
 
 function FooterMiniLink({ to, label, description }) {
   return (
-    <NavLink to={to} className="rounded-[1.45rem] border border-white/70 bg-white/72 px-4 py-4 transition hover:-translate-y-0.5">
+    <NavLink to={to} className="rounded-[20px] border border-slate-200 bg-white px-4 py-4 transition hover:-translate-y-0.5">
       <div className="text-sm font-semibold text-ink">{label}</div>
-      <div className="mt-1 text-sm text-ink/58">{description}</div>
+      <div className="mt-1 text-sm text-ink/56">{description}</div>
     </NavLink>
   );
 }

@@ -7,6 +7,13 @@ import EmptyState from "../components/EmptyState";
 import SectionHeader from "../components/SectionHeader";
 import SmartImage from "../components/SmartImage";
 
+const caseFallbackImages = {
+  教育: "/showcase/campus-services.svg",
+  企业: "/showcase/service-console.svg",
+  文旅: "/showcase/cultural-guide.svg",
+  定制: "/showcase/knowledge-ops.svg",
+};
+
 export default function CasesPage() {
   const [cases, setCases] = useState([]);
   const [templates, setTemplates] = useState([]);
@@ -30,78 +37,59 @@ export default function CasesPage() {
 
   return (
     <section className="section-shell">
-      <div className="hero-panel p-6 sm:p-8 lg:p-10">
-        <div className="relative z-10">
-          <SectionHeader
-            eyebrow="成功案例"
-            title="用更像国际产品网站的方式展示 Demo、场景与能力边界"
-            description="案例页不是简单的图片堆叠，而是帮助企业在采购前快速理解智能体适用场景、交互方式和可落地程度。"
-            action={
-              <Link to="/templates" className="button-secondary">
-                先看模板中心
-                <ArrowRight size={16} className="ml-2" />
-              </Link>
-            }
-          />
-        </div>
+      <div className="hero-panel p-7 sm:p-8 lg:p-10">
+        <SectionHeader
+          eyebrow="成功案例"
+          title="用真实业务场景和交付边界说明项目价值，而不是只展示效果"
+          description="案例页重点帮助企业理解项目适用场景、交互方式、上线成熟度以及是否适合继续采购或定制。"
+          action={
+            <Link to="/templates" className="button-secondary">
+              先看模板中心
+              <ArrowRight size={16} className="ml-2" />
+            </Link>
+          }
+        />
       </div>
 
       <div className="mt-10 grid gap-8 lg:grid-cols-2">
         {cases.length ? (
-          cases.map((item, index) => {
+          cases.map((item) => {
             const matchedTemplate = templateMap.get(item.category);
             const orderUrl = matchedTemplate
               ? `/enterprise/orders/new?templateId=${matchedTemplate.id}&agentId=${item.id}`
               : `/enterprise/orders/new?agentId=${item.id}`;
 
             return (
-              <article key={item.id} className="mesh-panel overflow-hidden">
-                <div className={`relative z-10 grid gap-6 p-6 md:p-7 ${index % 2 === 0 ? "md:grid-cols-[0.95fr_1.05fr]" : "md:grid-cols-[1.05fr_0.95fr]"}`}>
-                  <div className={`${index % 2 === 0 ? "" : "md:order-2"} space-y-4`}>
-                    <div className="overflow-hidden rounded-[1.7rem]">
-                      <SmartImage
-                        src={item.demoImageUrls?.[0] || item.imageUrls?.[0]}
-                        alt={`${item.name} 案例`}
-                        className="h-full min-h-[300px] w-full object-cover"
-                        fallbackClassName="h-full min-h-[300px] w-full"
-                        label="案例图"
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-3">
-                      {[...(item.demoImageUrls || []), ...(item.imageUrls || [])]
-                        .slice(0, 3)
-                        .map((image, imageIndex) => (
-                          <SmartImage
-                            key={`${item.id}-${imageIndex}`}
-                            src={image}
-                            alt={`${item.name} 宣传图 ${imageIndex + 1}`}
-                            className="h-24 w-full rounded-[1.1rem] object-cover"
-                            fallbackClassName="h-24 w-full rounded-[1.1rem]"
-                            label="宣传图"
-                          />
-                        ))}
-                    </div>
+              <article key={item.id} className="surface-panel overflow-hidden p-0">
+                <div className="grid gap-0 md:grid-cols-[0.95fr_1.05fr]">
+                  <div className="border-b border-slate-200 bg-slate-50 md:border-b-0 md:border-r">
+                    <SmartImage
+                      src={getCaseVisual(item)}
+                      alt={`${item.name} 案例`}
+                      className="h-full min-h-[320px] w-full object-cover"
+                      fallbackClassName="h-full min-h-[320px] w-full"
+                      label="案例封面"
+                    />
                   </div>
 
-                  <div className={`${index % 2 === 0 ? "" : "md:order-1"} space-y-5`}>
-                    <div className="data-chip">{item.category}</div>
-                    <h2 className="font-display text-3xl font-semibold text-ink">{item.name}</h2>
-                    <p className="text-sm leading-7 text-ink/66">{item.description}</p>
+                  <div className="p-6">
+                    <div className="section-label">{item.category}</div>
+                    <h2 className="mt-4 font-display text-3xl font-semibold text-ink">{item.name}</h2>
+                    <p className="mt-3 text-sm leading-7 text-ink/64">{item.description}</p>
 
-                    <div className="grid gap-3 sm:grid-cols-3">
-                      <MiniMetric icon={<MessagesSquare size={16} />} title="交互方式" text="多轮问答与需求澄清" />
-                      <MiniMetric icon={<Workflow size={16} />} title="流程形态" text="支持接单与转人工" />
-                      <MiniMetric icon={<MonitorPlay size={16} />} title="展示素材" text={`${item.demoImageUrls?.length || 1} 组场景图`} />
+                    <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                      <MiniMetric icon={<MessagesSquare size={16} />} title="交互方式" text="多轮问答与业务咨询" />
+                      <MiniMetric icon={<Workflow size={16} />} title="协作流程" text="支持下单、审核与交付" />
+                      <MiniMetric icon={<MonitorPlay size={16} />} title="展示素材" text={`${Math.max(item.demoImageUrls?.length || 0, 1)} 组案例图`} />
                     </div>
 
-                    <div className="rounded-[1.5rem] bg-[linear-gradient(180deg,rgba(245,239,230,0.84),rgba(255,255,255,0.94))] p-5 text-sm leading-7 text-ink/68">
-                      <div className="font-semibold text-ink">适配场景</div>
-                      <div className="mt-2">{item.summary}</div>
+                    <div className="mt-5 rounded-[20px] border border-slate-200 bg-slate-50 p-5">
+                      <div className="text-sm font-semibold text-ink">适用场景</div>
+                      <div className="mt-2 text-sm leading-7 text-ink/62">{item.summary}</div>
                     </div>
 
                     {matchedTemplate ? (
-                      <div className="rounded-[1.5rem] border border-white/80 bg-white/82 p-5">
+                      <div className="mt-5 rounded-[20px] border border-slate-200 bg-white p-5">
                         <div className="flex items-center gap-2 text-sm font-semibold text-ink">
                           <span className="text-sky">
                             <Blocks size={16} />
@@ -109,21 +97,21 @@ export default function CasesPage() {
                           推荐模板
                         </div>
                         <div className="mt-3 font-display text-2xl font-semibold text-ink">{matchedTemplate.name}</div>
-                        <p className="mt-2 text-sm leading-7 text-ink/64">{matchedTemplate.summary}</p>
+                        <p className="mt-2 text-sm leading-7 text-ink/62">{matchedTemplate.summary}</p>
                         <div className="mt-4 flex flex-wrap gap-3">
                           <Link to="/templates" className="button-secondary">
                             去模板中心
                           </Link>
                           <Link to={orderUrl} className="button-primary">
-                            套用模板下单
+                            采用该模板下单
                           </Link>
                         </div>
                       </div>
                     ) : null}
 
-                    <div className="flex flex-wrap gap-3">
+                    <div className="mt-6 flex flex-wrap gap-3">
                       <Link to={`/agents/${item.id}`} className="button-secondary">
-                        查看智能体详情
+                        查看项目详情
                       </Link>
                       <Link to={orderUrl} className="button-primary">
                         立即采购 / 定制
@@ -136,7 +124,7 @@ export default function CasesPage() {
           })
         ) : (
           <div className="lg:col-span-2">
-            <EmptyState title="暂时没有案例" description="学校上传并通过审核后，这里会自动展示对应的案例内容。" />
+            <EmptyState title="暂时没有案例" description="项目通过审核并补充展示素材后，这里会自动呈现相应案例内容。" />
           </div>
         )}
       </div>
@@ -145,31 +133,29 @@ export default function CasesPage() {
         <SectionHeader
           eyebrow="模板延展"
           title="如果案例已经接近你的目标场景，可以直接从模板继续推进"
-          description="模板会带出预算参考、交互框架和建议交付周期，让企业从案例页就能进入定制流程。"
+          description="模板会提供预算参考、交互结构和建议交付周期，让企业从案例页就能进入采购流程。"
         />
 
         <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {templates.length ? (
             templates.slice(0, 3).map((template) => (
-              <div key={template.id} className="glass-card card-hover overflow-hidden">
-                <div className="relative h-52 overflow-hidden">
+              <div key={template.id} className="surface-panel overflow-hidden p-0">
+                <div className="h-52 overflow-hidden border-b border-slate-200 bg-slate-50">
                   <SmartImage
-                    src={template.imageUrl || template.gallery?.[0]}
+                    src={template.imageUrl || template.gallery?.[0] || caseFallbackImages[template.category] || "/showcase/policy-advisor.svg"}
                     alt={template.name}
                     className="h-full w-full object-cover"
                     fallbackClassName="h-full w-full"
                     label="模板封面"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-aurora/80 via-aurora/10 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <div className="text-xs uppercase tracking-[0.22em] text-white/68">{template.category}</div>
-                    <div className="mt-2 font-display text-2xl font-semibold">{template.name}</div>
-                  </div>
                 </div>
-                <div className="space-y-4 p-5">
-                  <p className="text-sm leading-7 text-ink/66">{template.summary}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-semibold text-ink">¥{(template.recommendedPrice / 100).toLocaleString("zh-CN")}</span>
+
+                <div className="p-5">
+                  <div className="section-label">{template.category}</div>
+                  <h3 className="mt-4 font-display text-2xl font-semibold text-ink">{template.name}</h3>
+                  <p className="mt-3 text-sm leading-7 text-ink/64">{template.summary}</p>
+                  <div className="mt-5 flex items-center justify-between">
+                    <span className="text-sm font-semibold text-ink">{formatCurrency(template.recommendedPrice)}</span>
                     <Link
                       to={`/enterprise/orders/new?templateId=${template.id}${template.agentId ? `&agentId=${template.agentId}` : ""}`}
                       className="text-sm font-semibold text-sky"
@@ -182,7 +168,7 @@ export default function CasesPage() {
             ))
           ) : (
             <div className="md:col-span-2 xl:col-span-3">
-              <EmptyState title="模板数据暂未加载" description="模板中心准备好后，这里会自动展示推荐模板。" />
+              <EmptyState title="模板数据暂未加载" description="模板准备完成后，这里会自动显示推荐模板。" />
             </div>
           )}
         </div>
@@ -193,12 +179,23 @@ export default function CasesPage() {
 
 function MiniMetric({ icon, title, text }) {
   return (
-    <div className="rounded-[1.35rem] border border-white/80 bg-white/84 p-4">
-      <div className="flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-ink/40">
+    <div className="rounded-[18px] border border-slate-200 bg-slate-50 p-4">
+      <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-ink/42">
         {icon}
         {title}
       </div>
       <div className="mt-2 text-sm font-semibold text-ink">{text}</div>
     </div>
   );
+}
+
+function getCaseVisual(item) {
+  return item.demoImageUrls?.[0] || item.imageUrls?.[0] || caseFallbackImages[item.category] || "/showcase/service-console.svg";
+}
+
+function formatCurrency(value) {
+  if (!value) {
+    return "待评估";
+  }
+  return `¥${(value / 100).toLocaleString("zh-CN")}`;
 }

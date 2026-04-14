@@ -1,0 +1,25 @@
+<svg width="1600" height="1080" viewBox="0 0 1600 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1080" fill="#F8F5F0"/>
+  <rect x="82" y="82" width="1436" height="916" rx="36" fill="white" stroke="#E3DCCD" stroke-width="4"/>
+  <rect x="132" y="132" width="560" height="812" rx="30" fill="#FBF8F2"/>
+  <rect x="132" y="132" width="560" height="216" rx="30" fill="#C6842B"/>
+  <rect x="184" y="188" width="182" height="18" rx="9" fill="#FAECD3"/>
+  <rect x="184" y="226" width="214" height="16" rx="8" fill="#EAC996"/>
+  <rect x="184" y="398" width="398" height="70" rx="22" fill="white"/>
+  <rect x="184" y="504" width="328" height="16" rx="8" fill="#C5B6A1"/>
+  <rect x="184" y="542" width="304" height="16" rx="8" fill="#D8CCBC"/>
+  <rect x="184" y="618" width="174" height="50" rx="25" fill="#C6842B"/>
+  <rect x="382" y="618" width="160" height="50" rx="25" fill="#FBF1DD"/>
+  <rect x="760" y="154" width="654" height="316" rx="30" fill="#FCF8F1" stroke="#E8DECF" stroke-width="3"/>
+  <path d="M962 394C1018 302 1090 240 1186 206C1288 170 1360 176 1450 214V394H962Z" fill="#EFDAB7"/>
+  <path d="M1058 394C1102 326 1156 286 1222 260C1290 234 1358 236 1450 270V394H1058Z" fill="#D9B47A"/>
+  <rect x="760" y="542" width="282" height="308" rx="30" fill="#F7F1E8"/>
+  <rect x="1080" y="542" width="334" height="308" rx="30" fill="#F9F5EF"/>
+  <text x="184" y="798" fill="#1C2026" font-family="Noto Sans SC, sans-serif" font-size="64" font-weight="700">文旅讲解官</text>
+  <text x="184" y="850" fill="#6F6558" font-family="Noto Sans SC, sans-serif" font-size="28">适用于景区、展馆和城市文旅场景的讲解与导览智能体。</text>
+  <text x="814" y="214" fill="#B17116" font-family="DM Sans, sans-serif" font-size="22" font-weight="700" letter-spacing="4">CULTURAL SERVICES</text>
+  <text x="812" y="624" fill="#8A6A44" font-family="DM Sans, sans-serif" font-size="22" font-weight="700">讲解脚本</text>
+  <text x="812" y="666" fill="#6F6558" font-family="Noto Sans SC, sans-serif" font-size="26">景点介绍、路线推荐、多语言问答</text>
+  <text x="1132" y="624" fill="#8A6A44" font-family="DM Sans, sans-serif" font-size="22" font-weight="700">导览运营</text>
+  <text x="1132" y="666" fill="#6F6558" font-family="Noto Sans SC, sans-serif" font-size="26">适合展馆、景区与城市服务入口</text>
+</svg>

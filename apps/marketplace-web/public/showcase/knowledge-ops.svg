@@ -1,0 +1,27 @@
+<svg width="1600" height="1080" viewBox="0 0 1600 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1080" fill="#F6F7F4"/>
+  <rect x="84" y="84" width="1432" height="912" rx="36" fill="#FFFFFF" stroke="#DCE3DA" stroke-width="4"/>
+  <rect x="130" y="132" width="610" height="816" rx="28" fill="#F7FAF7"/>
+  <rect x="130" y="132" width="610" height="196" rx="28" fill="#1F5A4A"/>
+  <rect x="186" y="392" width="448" height="64" rx="18" fill="#FFFFFF"/>
+  <rect x="186" y="492" width="394" height="16" rx="8" fill="#C6D4CB"/>
+  <rect x="186" y="530" width="338" height="16" rx="8" fill="#D6E0DA"/>
+  <rect x="186" y="610" width="192" height="50" rx="25" fill="#1F5A4A"/>
+  <rect x="402" y="610" width="176" height="50" rx="25" fill="#EAF3F0"/>
+  <rect x="790" y="160" width="582" height="268" rx="28" fill="#F7FAF7" stroke="#DBE6E0" stroke-width="3"/>
+  <rect x="838" y="220" width="188" height="38" rx="19" fill="#EAF3F0"/>
+  <rect x="838" y="300" width="328" height="24" rx="12" fill="#203548"/>
+  <rect x="838" y="346" width="458" height="16" rx="8" fill="#BBC8C2"/>
+  <rect x="838" y="388" width="420" height="16" rx="8" fill="#D3DDD8"/>
+  <rect x="790" y="472" width="278" height="212" rx="26" fill="#EEF5EC"/>
+  <rect x="1094" y="472" width="278" height="212" rx="26" fill="#F6EFE5"/>
+  <rect x="790" y="714" width="582" height="182" rx="28" fill="#F8FAFC"/>
+  <text x="186" y="806" fill="#17202B" font-family="DM Sans, sans-serif" font-size="62" font-weight="700">Knowledge Operations</text>
+  <text x="186" y="856" fill="#5E6B78" font-family="DM Sans, sans-serif" font-size="28">A calm delivery poster for enterprise knowledge and workflow assistants</text>
+  <text x="838" y="196" fill="#1F5A4A" font-family="DM Sans, sans-serif" font-size="22" font-weight="700" letter-spacing="4">KNOWLEDGE SYSTEM</text>
+  <text x="824" y="528" fill="#4D7C57" font-family="DM Sans, sans-serif" font-size="22" font-weight="700">Search Layer</text>
+  <text x="824" y="568" fill="#5E6B78" font-family="DM Sans, sans-serif" font-size="24">Policy, docs and workflow retrieval</text>
+  <text x="1128" y="528" fill="#8B6D4A" font-family="DM Sans, sans-serif" font-size="22" font-weight="700">Delivery Notes</text>
+  <text x="1128" y="568" fill="#5E6B78" font-family="DM Sans, sans-serif" font-size="24">Scope, support and handoff rhythm</text>
+  <text x="824" y="784" fill="#203548" font-family="DM Sans, sans-serif" font-size="24" font-weight="700">Useful as a neutral fallback visual for enterprise or custom agents</text>
+</svg>

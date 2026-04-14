@@ -1,0 +1,27 @@
+<svg width="1600" height="1080" viewBox="0 0 1600 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1080" fill="#F6F7F8"/>
+  <rect x="82" y="82" width="1436" height="916" rx="36" fill="white" stroke="#D9E0E7" stroke-width="4"/>
+  <rect x="136" y="136" width="594" height="808" rx="30" fill="#F8FBFC"/>
+  <rect x="136" y="136" width="594" height="206" rx="30" fill="#334B68"/>
+  <rect x="188" y="190" width="210" height="18" rx="9" fill="#D5E0EF"/>
+  <rect x="188" y="228" width="240" height="16" rx="8" fill="#96A9C1"/>
+  <rect x="188" y="392" width="438" height="74" rx="22" fill="white"/>
+  <rect x="188" y="506" width="352" height="16" rx="8" fill="#BBC6D1"/>
+  <rect x="188" y="544" width="318" height="16" rx="8" fill="#D2DAE1"/>
+  <rect x="188" y="618" width="196" height="52" rx="26" fill="#334B68"/>
+  <rect x="408" y="618" width="164" height="52" rx="26" fill="#EEF2F6"/>
+  <rect x="780" y="154" width="640" height="334" rx="30" fill="#F8FAFB" stroke="#DDE5EC" stroke-width="3"/>
+  <rect x="832" y="220" width="188" height="36" rx="18" fill="#EEF2F6"/>
+  <rect x="832" y="292" width="422" height="20" rx="10" fill="#1E2833"/>
+  <rect x="832" y="332" width="538" height="15" rx="7.5" fill="#B5C2CD"/>
+  <rect x="832" y="368" width="500" height="15" rx="7.5" fill="#CCD6DE"/>
+  <rect x="780" y="546" width="300" height="302" rx="30" fill="#EEF5EC"/>
+  <rect x="1120" y="546" width="300" height="302" rx="30" fill="#F4F6F8"/>
+  <text x="188" y="798" fill="#17202B" font-family="Noto Sans SC, sans-serif" font-size="64" font-weight="700">科研协作助手</text>
+  <text x="188" y="850" fill="#5E6B78" font-family="Noto Sans SC, sans-serif" font-size="28">面向实验室与校企联合项目的流程整理、资料归档与协作提醒智能体。</text>
+  <text x="832" y="208" fill="#334B68" font-family="DM Sans, sans-serif" font-size="22" font-weight="700" letter-spacing="4">LAB OPERATIONS</text>
+  <text x="834" y="624" fill="#517A4F" font-family="DM Sans, sans-serif" font-size="22" font-weight="700">资料归档</text>
+  <text x="834" y="666" fill="#5E6B78" font-family="Noto Sans SC, sans-serif" font-size="26">实验记录、项目文档与交付文件统一整理</text>
+  <text x="1172" y="624" fill="#607182" font-family="DM Sans, sans-serif" font-size="22" font-weight="700">团队协作</text>
+  <text x="1172" y="666" fill="#5E6B78" font-family="Noto Sans SC, sans-serif" font-size="26">支持提醒、状态跟踪与校企合作沟通</text>
+</svg>
