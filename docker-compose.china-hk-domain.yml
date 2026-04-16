@@ -1,0 +1,20 @@
+services:
+  marketplace:
+    ports:
+      - "127.0.0.1:4000:4000"
+
+  gateway:
+    image: caddy:2-alpine
+    depends_on:
+      - marketplace
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN:?DOMAIN is required}
+      ACME_EMAIL: ${ACME_EMAIL:-}
+    volumes:
+      - ./deploy/china-hk/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./deploy/china-hk/caddy-data:/data
+      - ./deploy/china-hk/caddy-config:/config
+    restart: unless-stopped
