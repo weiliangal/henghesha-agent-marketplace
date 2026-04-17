@@ -14,6 +14,8 @@ import { NavLink, Outlet, useLocation } from "react-router-dom";
 
 import { useAuth } from "../context/AuthContext";
 
+const BRAND_LOGO_SRC = "/logo-10e52.png";
+
 const primaryNav = [
   { to: "/", label: "首页" },
   { to: "/agents", label: "项目广场" },
@@ -100,8 +102,8 @@ export default function AppShell() {
             </button>
 
             <NavLink to="/" className="group flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50">
-                <img src="/favicon.svg" alt="恒河沙智能体交易网" className="h-9 w-9" />
+              <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                <img src={BRAND_LOGO_SRC} alt="恒河沙智能体交易网" className="h-full w-full object-cover" />
               </div>
               <div>
                 <div className="text-[11px] font-semibold uppercase tracking-[0.24em] text-ink/40">Henghesha Marketplace</div>
@@ -222,7 +224,12 @@ export default function AppShell() {
           <div className="soft-divider mt-10 pt-8">
             <div className="grid gap-8 lg:grid-cols-[1.3fr_0.7fr]">
               <div>
-                <div className="font-display text-lg font-semibold text-ink">恒河沙智能体交易网</div>
+                <div className="flex items-center gap-3">
+                  <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                    <img src={BRAND_LOGO_SRC} alt="恒河沙智能体交易网" className="h-full w-full object-cover" />
+                  </div>
+                  <div className="font-display text-lg font-semibold text-ink">恒河沙智能体交易网</div>
+                </div>
                 <p className="mt-3 max-w-2xl text-sm leading-7 text-ink/60">
                   面向高校团队、企业客户与平台管理者的智能体成果展示与服务协作平台。当前版本支持项目广场、
                   模板中心、企业需求提交、高校团队入驻与订单管理等核心链路。
