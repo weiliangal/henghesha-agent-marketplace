@@ -8,6 +8,16 @@ const categoryStyles = {
   企业: "bg-tide/10 text-tide",
   文旅: "bg-gold/18 text-amber-700",
   定制: "bg-slate-100 text-slate-700",
+  销售增长: "bg-rose-50 text-rose-700",
+  市场营销: "bg-orange-50 text-orange-700",
+  客户成功: "bg-emerald-50 text-emerald-700",
+  人力资源: "bg-cyan-50 text-cyan-700",
+  财务经营: "bg-blue-50 text-blue-700",
+  采购供应链: "bg-violet-50 text-violet-700",
+  运营管理: "bg-lime-50 text-lime-700",
+  "IT与数据": "bg-indigo-50 text-indigo-700",
+  法务风控: "bg-stone-100 text-stone-700",
+  战略行政: "bg-fuchsia-50 text-fuchsia-700",
 };
 
 export default function AgentCard({ agent }) {

@@ -8,7 +8,7 @@ import AgentSkeleton from "../components/AgentSkeleton";
 import EmptyState from "../components/EmptyState";
 import SectionHeader from "../components/SectionHeader";
 
-const categories = ["全部", "教育", "企业", "文旅", "定制"];
+const ALL_CATEGORIES = "全部";
 const priceRanges = [
   { value: "all", label: "全部价格" },
   { value: "0-100000", label: "10 万以内" },
@@ -18,7 +18,7 @@ const priceRanges = [
 
 export default function AgentsPage() {
   const [agents, setAgents] = useState([]);
-  const [category, setCategory] = useState("全部");
+  const [category, setCategory] = useState(ALL_CATEGORIES);
   const [search, setSearch] = useState("");
   const [sortMode, setSortMode] = useState("latest");
   const [priceRange, setPriceRange] = useState("all");
@@ -36,12 +36,23 @@ export default function AgentsPage() {
       .finally(() => setLoading(false));
   }, []);
 
+  const categories = useMemo(
+    () => [ALL_CATEGORIES, ...Array.from(new Set(agents.map((agent) => agent.category).filter(Boolean)))],
+    [agents],
+  );
+
+  useEffect(() => {
+    if (!categories.includes(category)) {
+      setCategory(ALL_CATEGORIES);
+    }
+  }, [categories, category]);
+
   const filtered = useMemo(() => {
     const term = deferredSearch.trim().toLowerCase();
 
     return [...agents]
       .filter((agent) => {
-        const categoryPass = category === "全部" || agent.category === category;
+        const categoryPass = category === ALL_CATEGORIES || agent.category === category;
         const searchPass = !term || [agent.name, agent.summary, agent.description].join(" ").toLowerCase().includes(term);
 
         let pricePass = true;
@@ -86,7 +97,7 @@ export default function AgentsPage() {
             <SectionHeader
               eyebrow="项目广场"
               title="像成熟 B2B 平台一样浏览、比较和筛选智能体项目"
-              description="这里集中展示平台已审核上线的项目。你可以按行业、价格区间和关键词快速筛选，也可以先从模板中心进入采购入口。"
+              description="这里集中展示平台已审核上线的项目。你可以按业务分类、价格区间和关键词快速筛选，也可以先从模板中心进入采购入口。"
               action={
                 <Link to="/templates" className="button-secondary">
                   前往模板中心
@@ -200,8 +211,8 @@ export default function AgentsPage() {
         />
         <SubtleNote
           icon={<SlidersHorizontal size={17} />}
-          title="清晰的筛选入口"
-          text="把搜索、分类、价格区间和排序集中在同一层，提升目录浏览效率。"
+          title="动态业务分类"
+          text="项目分类现在会跟随创作者上架内容自动增长，不会因为新业务域进入平台而被旧筛选器挡住。"
         />
         <SubtleNote
           icon={<Blocks size={17} />}
@@ -233,3 +244,4 @@ function SubtleNote({ icon, title, text }) {
     </div>
   );
 }
+

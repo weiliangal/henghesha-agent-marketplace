@@ -7,19 +7,14 @@ import EmptyState from "../components/EmptyState";
 import SectionHeader from "../components/SectionHeader";
 import SmartImage from "../components/SmartImage";
 
-const categories = ["全部", "教育", "企业", "文旅", "定制"];
-
-const templateFallbackImages = {
-  教育: "/showcase/admissions-assistant.svg",
-  企业: "/showcase/enterprise-copilot.svg",
-  文旅: "/showcase/cultural-guide.svg",
-  定制: "/showcase/lab-operations.svg",
-};
+const ALL_CATEGORIES = "全部";
+const defaultTemplateImage = "/uploads/seed/sales-cover.svg";
 
 export default function TemplatesPage() {
   const [templates, setTemplates] = useState([]);
+  const [featuredTemplates, setFeaturedTemplates] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [category, setCategory] = useState("全部");
+  const [category, setCategory] = useState(ALL_CATEGORIES);
   const [search, setSearch] = useState("");
   const deferredSearch = useDeferredValue(search);
 
@@ -30,6 +25,7 @@ export default function TemplatesPage() {
       .then((data) => {
         if (mounted) {
           setTemplates(data.templates || []);
+          setFeaturedTemplates(data.featuredTemplates || []);
         }
       })
       .finally(() => {
@@ -43,10 +39,21 @@ export default function TemplatesPage() {
     };
   }, []);
 
+  const categories = useMemo(
+    () => [ALL_CATEGORIES, ...Array.from(new Set(templates.map((template) => template.category).filter(Boolean)))],
+    [templates],
+  );
+
+  useEffect(() => {
+    if (!categories.includes(category)) {
+      setCategory(ALL_CATEGORIES);
+    }
+  }, [categories, category]);
+
   const filtered = useMemo(() => {
     const term = deferredSearch.trim().toLowerCase();
     return templates.filter((template) => {
-      const categoryPass = category === "全部" || template.category === category;
+      const categoryPass = category === ALL_CATEGORIES || template.category === category;
       const searchPass =
         !term ||
         [template.name, template.summary, template.description, ...(template.capabilities || [])]
@@ -57,7 +64,7 @@ export default function TemplatesPage() {
     });
   }, [category, deferredSearch, templates]);
 
-  const featured = templates.slice(0, 3);
+  const featured = featuredTemplates.length ? featuredTemplates : templates.slice(0, 3);
 
   return (
     <section className="section-shell">
@@ -67,7 +74,7 @@ export default function TemplatesPage() {
             <SectionHeader
               eyebrow="模板中心"
               title="先用标准模板降低决策成本，再进入项目采购或定制流程"
-              description="模板不是简单的展示页，而是帮助企业快速理解适用场景、核心能力、交付边界和预算区间的采购入口。"
+              description="模板不只是展示页，而是帮助企业快速理解适用场景、核心能力、交付边界和预算区间的标准化采购入口。"
             />
 
             <div className="mt-8 section-tint p-5">
@@ -130,7 +137,7 @@ export default function TemplatesPage() {
         <SectionHeader
           eyebrow="模板列表"
           title="统一模板说明、价格带和交付节奏，让企业更容易判断是否值得进入合作"
-          description="模板会先约束场景、Prompt 和交互方式，再将项目预估价格和推荐交付周期清晰呈现出来。"
+          description="每个模板都会明确场景、Prompt、对话流程、参考预算和交付周期，方便运营、销售和客户一起快速评估。"
         />
 
         <div className="mt-8 grid gap-6 xl:grid-cols-2">
@@ -151,7 +158,7 @@ export default function TemplatesPage() {
             <div className="xl:col-span-2">
               <EmptyState
                 title="没有匹配的模板"
-                description="可以切换分类、修改搜索词，或直接前往企业需求页发起纯定制订单。"
+                description="可以切换分类、修改搜索词，或者直接前往企业需求页发起纯定制订单。"
                 action={
                   <Link to="/enterprise/orders/new" className="button-primary">
                     发起定制需求
@@ -187,7 +194,9 @@ function TemplateCard({ template }) {
         <div className="p-6">
           <div className="flex flex-wrap items-center gap-2">
             <span className="section-label">{template.category}</span>
-            <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm text-ink/58">预计 {template.deliveryDays} 天</span>
+            <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm text-ink/58">
+              预计 {template.deliveryDays} 天
+            </span>
           </div>
 
           <h3 className="mt-4 font-display text-3xl font-semibold text-ink">{template.name}</h3>
@@ -256,7 +265,7 @@ function InfoRow({ icon, text }) {
 }
 
 function getTemplateVisual(template) {
-  return template.imageUrl || template.gallery?.[0] || templateFallbackImages[template.category] || "/showcase/knowledge-ops.svg";
+  return template.imageUrl || template.gallery?.[0] || defaultTemplateImage;
 }
 
 function formatCurrency(value) {
@@ -265,3 +274,4 @@ function formatCurrency(value) {
   }
   return `¥${(value / 100).toLocaleString("zh-CN")}`;
 }
+

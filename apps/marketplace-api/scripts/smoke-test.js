@@ -71,6 +71,11 @@ async function run() {
       throw new Error("expected seeded agents");
     }
 
+    const templates = await request("/site/templates");
+    if ((templates.templates || []).length !== 100) {
+      throw new Error(`expected 100 enterprise templates, received ${(templates.templates || []).length}`);
+    }
+
     const createdOrder = await request("/orders", {
       method: "POST",
       headers: {
@@ -110,6 +115,7 @@ async function run() {
         {
           ok: true,
           agents: agents.agents.length,
+          templates: templates.templates.length,
           orders: adminOrders.orders.length,
           smokeOrderId: createdOrder.order.id,
           database: tempDbPath,
