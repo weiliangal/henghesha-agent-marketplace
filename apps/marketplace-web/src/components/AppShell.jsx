@@ -102,8 +102,8 @@ export default function AppShell() {
             </button>
 
             <NavLink to="/" className="group flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-                <img src={BRAND_LOGO_SRC} alt="恒河沙智能体交易网" className="h-full w-full object-cover" />
+              <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-[20px] border border-slate-200 bg-white shadow-sm">
+                <img src={BRAND_LOGO_SRC} alt="恒河沙智能体交易网" className="h-full w-full object-contain p-0.5" />
               </div>
               <div>
                 <div className="text-[11px] font-semibold uppercase tracking-[0.24em] text-ink/40">Henghesha Marketplace</div>
@@ -225,8 +225,8 @@ export default function AppShell() {
             <div className="grid gap-8 lg:grid-cols-[1.3fr_0.7fr]">
               <div>
                 <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-                    <img src={BRAND_LOGO_SRC} alt="恒河沙智能体交易网" className="h-full w-full object-cover" />
+                  <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-[20px] border border-slate-200 bg-white shadow-sm">
+                    <img src={BRAND_LOGO_SRC} alt="恒河沙智能体交易网" className="h-full w-full object-contain p-0.5" />
                   </div>
                   <div className="font-display text-lg font-semibold text-ink">恒河沙智能体交易网</div>
                 </div>
