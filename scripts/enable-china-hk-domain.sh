@@ -18,6 +18,7 @@ mkdir -p deploy/china-hk deploy/china-hk/caddy-data deploy/china-hk/caddy-config
 cat > deploy/china-hk/domain.env <<EOF
 DOMAIN=$DOMAIN
 ACME_EMAIL=$ACME_EMAIL
+PUBLIC_PORT=127.0.0.1:4000
 EOF
 
 cp config/china-hk/Caddyfile.template deploy/china-hk/Caddyfile
