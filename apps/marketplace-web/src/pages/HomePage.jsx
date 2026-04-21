@@ -469,30 +469,28 @@ function EntryCard({ icon, title, text, to }) {
 
 function ShowcaseProjectCard({ project }) {
   return (
-    <article className="glass-card overflow-hidden">
-      <div className="grid gap-0 lg:grid-cols-[1.08fr_0.92fr]">
-        <div className="border-b border-slate-200 bg-slate-50 lg:border-b-0 lg:border-r">
-          <img src={project.image} alt={project.title} className="h-full w-full object-cover" />
+    <article className="glass-card card-hover overflow-hidden">
+      <div className="border-b border-slate-200 bg-gradient-to-br from-slate-50 via-white to-slate-100 p-3 sm:p-4">
+        <img src={project.image} alt={project.title} loading="lazy" className="aspect-[16/9] w-full rounded-[24px] object-contain" />
+      </div>
+      <div className="p-6 lg:p-7">
+        <div className="section-label">{project.category}</div>
+        <h3 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink">{project.title}</h3>
+        <p className="mt-4 text-sm leading-7 text-ink/66">{project.summary}</p>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <span key={tag} className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm text-ink/58">
+              {tag}
+            </span>
+          ))}
         </div>
-        <div className="p-6 lg:p-7">
-          <div className="section-label">{project.category}</div>
-          <h3 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink">{project.title}</h3>
-          <p className="mt-4 text-sm leading-7 text-ink/66">{project.summary}</p>
-          <div className="mt-5 flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <span key={tag} className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm text-ink/58">
-                {tag}
-              </span>
-            ))}
-          </div>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Link to="/agents" className="button-secondary">
-              查看同类项目
-            </Link>
-            <Link to="/enterprise/orders/new" className="text-sm font-semibold text-sky">
-              提交需求
-            </Link>
-          </div>
+        <div className="mt-6 flex flex-wrap items-center gap-3">
+          <Link to="/agents" className="button-secondary">
+            查看同类项目
+          </Link>
+          <Link to="/enterprise/orders/new" className="text-sm font-semibold text-sky">
+            提交需求
+          </Link>
         </div>
       </div>
     </article>
