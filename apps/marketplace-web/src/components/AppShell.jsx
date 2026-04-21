@@ -21,6 +21,7 @@ const primaryNav = [
   { to: "/agents", label: "项目广场" },
   { to: "/templates", label: "模板中心" },
   { to: "/cases", label: "成功案例" },
+  { to: "/progress", label: "建设进展" },
 ];
 
 const metaByPath = [
@@ -28,6 +29,7 @@ const metaByPath = [
   { match: /^\/agents$/, title: "项目广场 | 恒河沙智能体交易网", description: "浏览平台已审核上线的智能体项目，按行业、价格与应用场景进行筛选。" },
   { match: /^\/templates$/, title: "模板中心 | 恒河沙智能体交易网", description: "通过标准模板快速发起企业采购或定制需求，降低立项与评估成本。" },
   { match: /^\/cases$/, title: "成功案例 | 恒河沙智能体交易网", description: "通过真实场景案例了解智能体项目的落地方式、交付边界与合作模式。" },
+  { match: /^\/(progress|roadmap)$/, title: "平台建设进展与保障机制 | 恒河沙智能体交易网", description: "了解平台当前建设阶段、保障机制、完善计划与面向高校和企业的合作承诺。" },
   { match: /^\/agents\/\d+$/, title: "项目详情 | 恒河沙智能体交易网", description: "查看项目能力、适用场景、案例素材、报价与采购入口。" },
   { match: /^\/auth$/, title: "登录 / 注册 | 恒河沙智能体交易网", description: "高校团队、企业客户与平台管理员统一登录入口。" },
   { match: /^\/enterprise\/orders\/new$/, title: "提交企业需求 | 恒河沙智能体交易网", description: "发布企业采购或定制需求，明确预算、交付周期与业务目标。" },
@@ -240,6 +242,7 @@ export default function AppShell() {
                 <FooterMiniLink to="/agents" label="项目广场" description="浏览已上线项目" />
                 <FooterMiniLink to="/templates" label="模板中心" description="按模板快速采购" />
                 <FooterMiniLink to="/cases" label="成功案例" description="了解落地场景" />
+                <FooterMiniLink to="/progress" label="建设进展" description="查看平台保障机制" />
                 <FooterMiniLink to="/school/upload" label="高校入驻" description="提交团队与项目" />
               </div>
             </div>

@@ -11,6 +11,7 @@ import EnterpriseOrderPage from "./pages/EnterpriseOrderPage";
 import HomePage from "./pages/HomePage";
 import OrdersPage from "./pages/OrdersPage";
 import ProfilePage from "./pages/ProfilePage";
+import ProgressPage from "./pages/ProgressPage";
 import SchoolUploadPage from "./pages/SchoolUploadPage";
 import TemplatesPage from "./pages/TemplatesPage";
 
@@ -23,6 +24,8 @@ export default function App() {
         <Route path="/templates" element={<TemplatesPage />} />
         <Route path="/agents/:id" element={<AgentDetailPage />} />
         <Route path="/cases" element={<CasesPage />} />
+        <Route path="/progress" element={<ProgressPage />} />
+        <Route path="/roadmap" element={<ProgressPage />} />
         <Route path="/auth" element={<AuthPage />} />
         <Route
           path="/enterprise/orders/new"
