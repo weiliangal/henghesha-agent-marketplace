@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="90" y1="110" x2="1110" y2="790" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0f172a"/>
+      <stop offset=".56" stop-color="#1d4ed8"/>
+      <stop offset="1" stop-color="#93c5fd"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect x="100" y="118" width="1000" height="664" rx="52" fill="#fff" opacity=".13" stroke="#fff" stroke-opacity=".24"/>
+  <rect x="178" y="230" width="410" height="420" rx="38" fill="#fff"/>
+  <rect x="236" y="292" width="230" height="24" rx="12" fill="#1d4ed8"/>
+  <rect x="236" y="354" width="280" height="18" rx="9" fill="#cbd5e1"/>
+  <rect x="236" y="404" width="210" height="18" rx="9" fill="#cbd5e1"/>
+  <rect x="236" y="500" width="286" height="72" rx="20" fill="#dbeafe"/>
+  <path d="M690 632V438M802 632V340M914 632V500" stroke="#fff" stroke-width="54" stroke-linecap="round"/>
+  <path d="M652 660h314" stroke="#fff" stroke-width="22" stroke-linecap="round" opacity=".72"/>
+  <text x="650" y="250" fill="#fff" font-family="Arial, sans-serif" font-size="62" font-weight="800">Finance Ops</text>
+  <text x="654" y="312" fill="#fff" opacity=".82" font-family="Arial, sans-serif" font-size="28">Budget · Cashflow · Audit</text>
+</svg>

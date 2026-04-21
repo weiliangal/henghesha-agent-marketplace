@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="90" y1="100" x2="1100" y2="812" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#241144"/>
+      <stop offset=".58" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#c4b5fd"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect x="110" y="120" width="980" height="660" rx="50" fill="#fff" opacity=".13" stroke="#fff" stroke-opacity=".24"/>
+  <path d="M274 322h656l-72 260H346l-72-260Z" fill="#fff"/>
+  <path d="M360 322 430 220h344l72 102" stroke="#fff" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" opacity=".72"/>
+  <circle cx="442" cy="652" r="42" fill="#ede9fe"/>
+  <circle cx="760" cy="652" r="42" fill="#ede9fe"/>
+  <path d="M420 420h360M396 500h430" stroke="#7c3aed" stroke-width="26" stroke-linecap="round" opacity=".72"/>
+  <text x="170" y="242" fill="#fff" font-family="Arial, sans-serif" font-size="62" font-weight="800">Procurement</text>
+  <text x="174" y="302" fill="#fff" opacity=".82" font-family="Arial, sans-serif" font-size="28">Suppliers · RFQ · Logistics</text>
+</svg>

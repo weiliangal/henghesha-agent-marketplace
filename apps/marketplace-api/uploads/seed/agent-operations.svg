@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="90" y1="90" x2="1110" y2="810" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1a2e05"/>
+      <stop offset=".58" stop-color="#65a30d"/>
+      <stop offset="1" stop-color="#d9f99d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect x="106" y="118" width="988" height="664" rx="52" fill="#fff" opacity=".13" stroke="#fff" stroke-opacity=".24"/>
+  <rect x="190" y="248" width="250" height="170" rx="34" fill="#fff"/>
+  <rect x="190" y="482" width="250" height="170" rx="34" fill="#fff" opacity=".8"/>
+  <rect x="514" y="248" width="250" height="170" rx="34" fill="#fff" opacity=".86"/>
+  <rect x="514" y="482" width="250" height="170" rx="34" fill="#fff"/>
+  <path d="M440 334h74M764 334h92M440 566h74M764 566h92" stroke="#fff" stroke-width="26" stroke-linecap="round"/>
+  <path d="M630 418v64" stroke="#fff" stroke-width="26" stroke-linecap="round"/>
+  <circle cx="920" cy="450" r="96" fill="#fff"/>
+  <path d="m884 452 26 28 54-68" stroke="#65a30d" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="178" y="200" fill="#fff" font-family="Arial, sans-serif" font-size="62" font-weight="800">Operations</text>
+  <text x="182" y="724" fill="#fff" opacity=".82" font-family="Arial, sans-serif" font-size="28">SOP · Projects · Capacity</text>
+</svg>

@@ -85,17 +85,13 @@ export default function AgentDetailPage() {
 
             <div className="glass-card overflow-hidden">
               <div className="overflow-hidden border-b border-slate-200 bg-slate-100">
-                {activeImage ? (
-                  <SmartImage
-                    src={activeImage}
-                    alt={agent.name}
-                    className="h-[460px] w-full object-cover"
-                    fallbackClassName="h-[460px] w-full"
-                    label="项目主图"
-                  />
-                ) : (
-                  <div className="flex h-[460px] items-center justify-center bg-slate-100 text-sm text-ink/50">暂无项目预览</div>
-                )}
+                <SmartImage
+                  src={activeImage}
+                  alt={agent.name}
+                  className="h-[460px] w-full object-cover"
+                  fallbackClassName="h-[460px] w-full"
+                  label="项目主图"
+                />
               </div>
               {gallery.length ? (
                 <div className="grid gap-3 p-4 sm:grid-cols-4">
@@ -220,9 +216,9 @@ export default function AgentDetailPage() {
       <div className="mt-6">
         <ContentPanel title="案例与展示素材">
           <div className="grid gap-4 md:grid-cols-3">
-            {(agent.demoImageUrls?.length ? agent.demoImageUrls : gallery.slice(0, 3)).map((image, index) => (
+            {(agent.demoImageUrls?.length ? agent.demoImageUrls : gallery.length ? gallery.slice(0, 3) : ["", "", ""]).map((image, index) => (
               <SmartImage
-                key={`${image}-${index}`}
+                key={`${image || agent.name}-${index}`}
                 src={image}
                 alt={`${agent.name} 场景 ${index + 1}`}
                 className="h-52 w-full rounded-[18px] object-cover"

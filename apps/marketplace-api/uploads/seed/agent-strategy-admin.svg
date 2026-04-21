@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="90" y1="90" x2="1110" y2="810" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#312e81"/>
+      <stop offset=".55" stop-color="#c026d3"/>
+      <stop offset="1" stop-color="#f9a8d4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect x="108" y="118" width="984" height="664" rx="52" fill="#fff" opacity=".13" stroke="#fff" stroke-opacity=".24"/>
+  <circle cx="600" cy="450" r="218" fill="#fff" opacity=".18"/>
+  <circle cx="600" cy="450" r="142" fill="#fff"/>
+  <path d="M600 330v120l88 72" stroke="#c026d3" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M292 604c92-124 202-186 330-186 122 0 224 56 306 168" stroke="#fff" stroke-width="36" stroke-linecap="round" opacity=".72"/>
+  <rect x="188" y="226" width="276" height="34" rx="17" fill="#fff" opacity=".58"/>
+  <rect x="730" y="640" width="278" height="34" rx="17" fill="#fff" opacity=".46"/>
+  <text x="166" y="724" fill="#fff" font-family="Arial, sans-serif" font-size="62" font-weight="800">Strategy Office</text>
+  <text x="170" y="784" fill="#fff" opacity=".82" font-family="Arial, sans-serif" font-size="28">Planning · Briefing · Partnerships</text>
+</svg>

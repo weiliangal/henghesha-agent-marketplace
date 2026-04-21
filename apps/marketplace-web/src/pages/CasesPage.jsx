@@ -64,7 +64,7 @@ export default function CasesPage() {
                 <div className="grid gap-0 md:grid-cols-[0.95fr_1.05fr]">
                   <div className="border-b border-slate-200 bg-slate-50 md:border-b-0 md:border-r">
                     <SmartImage
-                      src={getCaseVisual(item)}
+                      src={getCaseVisual(item, matchedTemplate)}
                       alt={`${item.name} 案例`}
                       className="h-full min-h-[320px] w-full object-cover"
                       fallbackClassName="h-full min-h-[320px] w-full"
@@ -189,8 +189,15 @@ function MiniMetric({ icon, title, text }) {
   );
 }
 
-function getCaseVisual(item) {
-  return item.demoImageUrls?.[0] || item.imageUrls?.[0] || caseFallbackImages[item.category] || "/showcase/service-console.svg";
+function getCaseVisual(item, matchedTemplate) {
+  return (
+    item.demoImageUrls?.[0] ||
+    item.imageUrls?.[0] ||
+    matchedTemplate?.imageUrl ||
+    matchedTemplate?.gallery?.[0] ||
+    caseFallbackImages[item.category] ||
+    "/showcase/service-console.svg"
+  );
 }
 
 function formatCurrency(value) {

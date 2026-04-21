@@ -1,40 +1,56 @@
 const visualSets = {
   sales: {
-    imageUrl: "/uploads/seed/sales-cover.svg",
-    gallery: ["/uploads/seed/sales-cover.svg", "/uploads/seed/sales-secondary.svg", "/uploads/seed/sales-demo.svg"],
+    imageUrl: "/uploads/seed/agent-sales-growth.svg",
+    gallery: ["/uploads/seed/agent-sales-growth.svg"],
   },
-  revenue: {
-    imageUrl: "/uploads/seed/sales-secondary.svg",
-    gallery: ["/uploads/seed/sales-secondary.svg", "/uploads/seed/sales-demo.svg", "/uploads/seed/sales-demo-2.svg"],
+  marketing: {
+    imageUrl: "/uploads/seed/agent-marketing.svg",
+    gallery: ["/uploads/seed/agent-marketing.svg"],
   },
-  people: {
-    imageUrl: "/uploads/seed/admission-cover.svg",
-    gallery: ["/uploads/seed/admission-cover.svg", "/uploads/seed/admission-secondary.svg", "/uploads/seed/admission-demo.svg"],
+  success: {
+    imageUrl: "/uploads/seed/agent-customer-success.svg",
+    gallery: ["/uploads/seed/agent-customer-success.svg"],
+  },
+  hr: {
+    imageUrl: "/uploads/seed/agent-hr.svg",
+    gallery: ["/uploads/seed/agent-hr.svg"],
   },
   finance: {
-    imageUrl: "/uploads/seed/admission-secondary.svg",
-    gallery: ["/uploads/seed/admission-secondary.svg", "/uploads/seed/admission-demo.svg", "/uploads/seed/admission-demo-2.svg"],
+    imageUrl: "/uploads/seed/agent-finance.svg",
+    gallery: ["/uploads/seed/agent-finance.svg"],
   },
-  service: {
-    imageUrl: "/uploads/seed/culture-cover.svg",
-    gallery: ["/uploads/seed/culture-cover.svg", "/uploads/seed/culture-secondary.svg", "/uploads/seed/culture-demo.svg"],
+  procurement: {
+    imageUrl: "/uploads/seed/agent-procurement.svg",
+    gallery: ["/uploads/seed/agent-procurement.svg"],
+  },
+  operations: {
+    imageUrl: "/uploads/seed/agent-operations.svg",
+    gallery: ["/uploads/seed/agent-operations.svg"],
+  },
+  it: {
+    imageUrl: "/uploads/seed/agent-it-data.svg",
+    gallery: ["/uploads/seed/agent-it-data.svg"],
+  },
+  risk: {
+    imageUrl: "/uploads/seed/agent-legal-risk.svg",
+    gallery: ["/uploads/seed/agent-legal-risk.svg"],
   },
   strategy: {
-    imageUrl: "/uploads/seed/culture-secondary.svg",
-    gallery: ["/uploads/seed/culture-secondary.svg", "/uploads/seed/culture-demo.svg", "/uploads/seed/culture-demo-2.svg"],
+    imageUrl: "/uploads/seed/agent-strategy-admin.svg",
+    gallery: ["/uploads/seed/agent-strategy-admin.svg"],
   },
 };
 
 const domainConfigs = {
   销售增长: { visual: "sales", basePrice: 128000, priceStep: 6000, baseDays: 7 },
-  市场营销: { visual: "revenue", basePrice: 118000, priceStep: 5000, baseDays: 7 },
-  客户成功: { visual: "service", basePrice: 108000, priceStep: 5000, baseDays: 6 },
-  人力资源: { visual: "people", basePrice: 98000, priceStep: 4000, baseDays: 6 },
+  市场营销: { visual: "marketing", basePrice: 118000, priceStep: 5000, baseDays: 7 },
+  客户成功: { visual: "success", basePrice: 108000, priceStep: 5000, baseDays: 6 },
+  人力资源: { visual: "hr", basePrice: 98000, priceStep: 4000, baseDays: 6 },
   财务经营: { visual: "finance", basePrice: 138000, priceStep: 6000, baseDays: 8 },
-  采购供应链: { visual: "revenue", basePrice: 148000, priceStep: 7000, baseDays: 8 },
-  运营管理: { visual: "service", basePrice: 112000, priceStep: 5000, baseDays: 7 },
-  IT与数据: { visual: "strategy", basePrice: 156000, priceStep: 8000, baseDays: 9 },
-  法务风控: { visual: "strategy", basePrice: 168000, priceStep: 8000, baseDays: 9 },
+  采购供应链: { visual: "procurement", basePrice: 148000, priceStep: 7000, baseDays: 8 },
+  运营管理: { visual: "operations", basePrice: 112000, priceStep: 5000, baseDays: 7 },
+  IT与数据: { visual: "it", basePrice: 156000, priceStep: 8000, baseDays: 9 },
+  法务风控: { visual: "risk", basePrice: 168000, priceStep: 8000, baseDays: 9 },
   战略行政: { visual: "strategy", basePrice: 132000, priceStep: 6000, baseDays: 8 },
 };
 

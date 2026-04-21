@@ -21,8 +21,12 @@ export function resolveAssetUrl(value) {
     return value;
   }
 
-  if (value.startsWith("/")) {
+  if (value.startsWith("/uploads/")) {
     return `${API_ORIGIN}${value}`;
+  }
+
+  if (value.startsWith("/")) {
+    return value;
   }
 
   return `${API_ORIGIN}/${value.replace(/^\.?\//, "")}`;

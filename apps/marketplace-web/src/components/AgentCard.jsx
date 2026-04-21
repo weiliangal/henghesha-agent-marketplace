@@ -26,19 +26,13 @@ export default function AgentCard({ agent }) {
   return (
     <article className="glass-card card-hover overflow-hidden">
       <div className="relative h-60 overflow-hidden border-b border-slate-200 bg-slate-100">
-        {cover ? (
-          <SmartImage
-            src={cover}
-            alt={agent.name}
-            className="h-full w-full object-cover"
-            fallbackClassName="h-full w-full"
-            label="项目展示"
-          />
-        ) : (
-          <div className="flex h-full items-center justify-center bg-[linear-gradient(180deg,#f8fafc,#eef4fb)] text-sm font-medium text-ink/50">
-            项目展示图
-          </div>
-        )}
+        <SmartImage
+          src={cover}
+          alt={agent.name}
+          className="h-full w-full object-cover"
+          fallbackClassName="h-full w-full"
+          label="项目展示"
+        />
         <div className="absolute left-5 top-5 flex flex-wrap gap-2">
           <span className={`rounded-full px-3 py-1 text-xs font-semibold ${categoryStyles[agent.category] || "bg-white text-ink"}`}>
             {agent.category}

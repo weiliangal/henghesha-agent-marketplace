@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="70" y1="110" x2="1090" y2="790" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#082f49"/>
+      <stop offset=".58" stop-color="#0891b2"/>
+      <stop offset="1" stop-color="#a5f3fc"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect x="118" y="120" width="964" height="660" rx="50" fill="#fff" opacity=".13" stroke="#fff" stroke-opacity=".22"/>
+  <circle cx="356" cy="386" r="92" fill="#fff"/>
+  <circle cx="590" cy="330" r="114" fill="#fff" opacity=".9"/>
+  <circle cx="830" cy="386" r="92" fill="#fff"/>
+  <path d="M218 650c52-104 224-104 276 0" fill="#fff" opacity=".7"/>
+  <path d="M424 674c62-132 270-132 332 0" fill="#fff"/>
+  <path d="M706 650c52-104 224-104 276 0" fill="#fff" opacity=".7"/>
+  <rect x="210" y="188" width="250" height="34" rx="17" fill="#fff" opacity=".52"/>
+  <rect x="210" y="242" width="160" height="24" rx="12" fill="#fff" opacity=".32"/>
+  <text x="650" y="225" fill="#fff" font-family="Arial, sans-serif" font-size="62" font-weight="800">People Ops</text>
+  <text x="654" y="286" fill="#fff" opacity=".82" font-family="Arial, sans-serif" font-size="28">Recruit · Learn · Retain</text>
+</svg>
