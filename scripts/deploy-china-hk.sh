@@ -37,6 +37,10 @@ cd "$PROJECT_DIR"
 
 echo "[3/6] Preparing persistent directories..."
 mkdir -p deploy/china-hk/data deploy/china-hk/uploads
+if [ -d apps/marketplace-api/uploads/seed ]; then
+  mkdir -p deploy/china-hk/uploads/seed
+  cp -R apps/marketplace-api/uploads/seed/. deploy/china-hk/uploads/seed/
+fi
 
 if [ ! -f "$RUNTIME_ENV" ]; then
   if command -v openssl >/dev/null 2>&1; then

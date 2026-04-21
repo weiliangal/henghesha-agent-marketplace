@@ -19,6 +19,7 @@ ENV NODE_ENV=production
 ENV PORT=4000
 
 COPY apps/marketplace-api ./apps/marketplace-api
+COPY apps/marketplace-api/uploads/seed ./apps/marketplace-api/seed-uploads/seed
 COPY --from=api-runtime /app/apps/marketplace-api/node_modules ./apps/marketplace-api/node_modules
 COPY --from=web-builder /app/apps/marketplace-web/dist ./apps/marketplace-web/dist
 
