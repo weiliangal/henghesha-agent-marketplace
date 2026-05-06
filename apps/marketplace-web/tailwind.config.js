@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        display: ['"Sora"', '"Noto Sans SC"', "sans-serif"],
-        body: ['"DM Sans"', '"Noto Sans SC"', "sans-serif"],
+        display: ['"Aptos Display"', '"PingFang SC"', '"Microsoft YaHei"', '"Source Han Sans SC"', "sans-serif"],
+        body: ['"Aptos"', '"PingFang SC"', '"Microsoft YaHei"', '"Source Han Sans SC"', "sans-serif"],
       },
       colors: {
         ink: "#07111f",

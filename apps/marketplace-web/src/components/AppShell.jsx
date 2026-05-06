@@ -18,25 +18,73 @@ const BRAND_LOGO_SRC = "/logo-10e52.png";
 
 const primaryNav = [
   { to: "/", label: "首页" },
-  { to: "/agents", label: "项目广场" },
+  { to: "/agents", label: "智能体库" },
   { to: "/templates", label: "模板中心" },
   { to: "/cases", label: "成功案例" },
-  { to: "/progress", label: "建设进展" },
+  { to: "/progress", label: "平台进展" },
 ];
 
 const metaByPath = [
-  { match: /^\/$/, title: "恒河沙智能体交易网", description: "连接高校团队与企业客户的智能体成果展示、采购、定制与交付协作平台。" },
-  { match: /^\/agents$/, title: "项目广场 | 恒河沙智能体交易网", description: "浏览平台已审核上线的智能体项目，按行业、价格与应用场景进行筛选。" },
-  { match: /^\/templates$/, title: "模板中心 | 恒河沙智能体交易网", description: "通过标准模板快速发起企业采购或定制需求，降低立项与评估成本。" },
-  { match: /^\/cases$/, title: "成功案例 | 恒河沙智能体交易网", description: "通过真实场景案例了解智能体项目的落地方式、交付边界与合作模式。" },
-  { match: /^\/(progress|roadmap)$/, title: "平台建设进展与保障机制 | 恒河沙智能体交易网", description: "了解平台当前建设阶段、保障机制、完善计划与面向高校和企业的合作承诺。" },
-  { match: /^\/agents\/\d+$/, title: "项目详情 | 恒河沙智能体交易网", description: "查看项目能力、适用场景、案例素材、报价与采购入口。" },
-  { match: /^\/auth$/, title: "登录 / 注册 | 恒河沙智能体交易网", description: "高校团队、企业客户与平台管理员统一登录入口。" },
-  { match: /^\/enterprise\/orders\/new$/, title: "提交企业需求 | 恒河沙智能体交易网", description: "发布企业采购或定制需求，明确预算、交付周期与业务目标。" },
-  { match: /^\/school\/upload$/, title: "高校团队入驻 | 恒河沙智能体交易网", description: "上传智能体成果、补充案例资料并进入平台审核流程。" },
-  { match: /^\/orders$/, title: "订单中心 | 恒河沙智能体交易网", description: "统一查看订单状态、支付进度、交付节点与协作记录。" },
-  { match: /^\/profile$/, title: "用户中心 | 恒河沙智能体交易网", description: "管理个人资料、账号安全和平台通知。" },
-  { match: /^\/admin$/, title: "管理后台 | 恒河沙智能体交易网", description: "审核项目、订单与支付状态，维护平台内容质量与交易秩序。" },
+  {
+    match: /^\/$/,
+    title: "恒河沙智能体交易网",
+    description: "连接高校团队与企业客户的智能体成果展示、采购、定制与交付协作平台。",
+  },
+  {
+    match: /^\/agents$/,
+    title: "智能体库 | 恒河沙智能体交易网",
+    description: "浏览已审核上线的智能体项目，按行业、价格与应用场景进行筛选。",
+  },
+  {
+    match: /^\/templates$/,
+    title: "模板中心 | 恒河沙智能体交易网",
+    description: "通过标准模板快速发起企业采购或定制需求，降低立项与评估成本。",
+  },
+  {
+    match: /^\/cases$/,
+    title: "成功案例 | 恒河沙智能体交易网",
+    description: "通过真实场景案例了解智能体项目的落地方式、交付边界与合作模式。",
+  },
+  {
+    match: /^\/(progress|roadmap)$/,
+    title: "平台建设进展与保障机制 | 恒河沙智能体交易网",
+    description: "了解平台当前建设阶段、保障机制、完善计划与面向高校和企业的合作承诺。",
+  },
+  {
+    match: /^\/agents\/\d+$/,
+    title: "项目详情 | 恒河沙智能体交易网",
+    description: "查看项目能力、适用场景、案例素材、报价与采购入口。",
+  },
+  {
+    match: /^\/auth$/,
+    title: "登录 / 注册 | 恒河沙智能体交易网",
+    description: "高校团队、企业客户与平台管理员统一登录入口。",
+  },
+  {
+    match: /^\/enterprise\/orders\/new$/,
+    title: "提交企业需求 | 恒河沙智能体交易网",
+    description: "发布企业采购或定制需求，明确预算、交付周期与业务目标。",
+  },
+  {
+    match: /^\/school\/upload$/,
+    title: "高校团队入驻 | 恒河沙智能体交易网",
+    description: "上传智能体成果、补充案例资料并进入平台审核流程。",
+  },
+  {
+    match: /^\/orders$/,
+    title: "订单中心 | 恒河沙智能体交易网",
+    description: "统一查看订单状态、支付进度、交付节点与协作记录。",
+  },
+  {
+    match: /^\/profile$/,
+    title: "用户中心 | 恒河沙智能体交易网",
+    description: "管理个人资料、账号安全和平台通知。",
+  },
+  {
+    match: /^\/admin$/,
+    title: "管理后台 | 恒河沙智能体交易网",
+    description: "审核项目、订单与支付状态，维护平台内容质量与交易秩序。",
+  },
 ];
 
 function roleLabel(role) {
@@ -77,21 +125,18 @@ export default function AppShell() {
 
   return (
     <div className="min-h-screen">
-      <div className="border-b border-slate-200 bg-white/90">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 text-xs text-ink/58 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="section-label">高校成果转化平台</span>
-            <span className="hidden md:inline">面向教育科技与企业服务的智能体展示、采购与交付协作平台</span>
-          </div>
-          <div className="hidden items-center gap-5 md:flex">
-            <span>项目审核机制</span>
-            <span>企业需求协同</span>
-            <span>模板化采购入口</span>
+      <div className="border-b border-white/10 bg-ink text-white">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 text-xs sm:px-6 lg:px-8">
+          <div className="font-semibold uppercase tracking-[0.28em] text-white/78">HENGHESHA AGENT MARKETPLACE</div>
+          <div className="hidden items-center gap-6 text-white/62 md:flex">
+            <span>高校成果商品化</span>
+            <span>企业采购转化</span>
+            <span>模板选型与定制交付</span>
           </div>
         </div>
       </div>
 
-      <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur">
+      <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-[#fbfaf7]/86 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <button
@@ -104,17 +149,17 @@ export default function AppShell() {
             </button>
 
             <NavLink to="/" className="group flex items-center gap-3">
-              <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-[20px] border border-slate-200 bg-white shadow-sm">
+              <div className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-[22px] border border-slate-200 bg-white shadow-sm">
                 <img src={BRAND_LOGO_SRC} alt="恒河沙智能体交易网" className="h-full w-full object-contain p-0.5" />
               </div>
               <div>
-                <div className="text-[11px] font-semibold uppercase tracking-[0.24em] text-ink/40">Henghesha Marketplace</div>
-                <div className="font-display text-lg font-semibold tracking-tight text-ink sm:text-xl">恒河沙智能体交易网</div>
+                <div className="text-[11px] font-semibold uppercase tracking-[0.26em] text-ink/38">Marketplace</div>
+                <div className="font-display text-xl font-semibold tracking-[-0.04em] text-ink sm:text-2xl">恒河沙智能体交易网</div>
               </div>
             </NavLink>
           </div>
 
-          <nav className="hidden items-center gap-2 md:flex">
+          <nav className="hidden items-center gap-1 md:flex">
             {primaryNav.map((item) => (
               <AppNavLink key={item.to} to={item.to}>
                 {item.label}
@@ -130,8 +175,8 @@ export default function AppShell() {
           <div className="flex items-center gap-2 sm:gap-3">
             {isAuthenticated ? (
               <>
-                <div className="hidden items-center gap-3 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 md:flex">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-sky shadow-sm">
+                <div className="hidden items-center gap-3 rounded-full border border-slate-200 bg-white px-4 py-2 md:flex">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-ink">
                     <UserCircle2 size={18} />
                   </div>
                   <div className="leading-tight">
@@ -191,22 +236,21 @@ export default function AppShell() {
         </div>
       </main>
 
-      <footer className="mt-16 border-t border-slate-200 bg-white">
+      <footer className="mt-16 border-t border-slate-200 bg-[#fbfaf7]">
         <div className="section-shell py-12">
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
             <div>
               <div className="section-label">平台说明</div>
-              <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink">
+              <h2 className="mt-4 max-w-2xl font-display text-4xl font-semibold leading-tight tracking-[-0.06em] text-ink">
                 让高校智能体成果以更可靠的方式进入企业场景
               </h2>
-              <p className="mt-4 max-w-2xl text-base leading-8 text-ink/66">
-                平台围绕项目展示、采购决策、需求提交、审核上线与订单协作建立统一入口，帮助高校团队更规范地对外呈现成果，
-                也帮助企业客户更高效地完成筛选、采购与沟通。
+              <p className="mt-4 max-w-2xl text-base leading-8 text-ink/64">
+                平台围绕项目展示、采购决策、需求提交、审核上线与订单协作建立统一入口，帮助高校团队规范呈现成果，也帮助企业客户高效完成筛选、采购与沟通。
               </p>
 
               <div className="mt-6 flex flex-wrap gap-3">
                 <NavLink to="/agents" className="button-primary">
-                  浏览项目广场
+                  浏览智能体库
                 </NavLink>
                 <NavLink to="/enterprise/orders/new" className="button-secondary">
                   提交企业需求
@@ -216,7 +260,7 @@ export default function AppShell() {
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <FooterStat icon={<Package2 size={18} />} title="项目展示" text="围绕案例、适用场景、交付方式与报价体系组织内容。" />
+              <FooterStat icon={<Package2 size={18} />} title="项目展示" text="围绕案例、场景、交付方式与报价体系组织内容。" />
               <FooterStat icon={<Blocks size={18} />} title="模板采购" text="企业可从标准模板切入，再延展为定制化项目。" />
               <FooterStat icon={<Building2 size={18} />} title="企业服务" text="支持需求提交、订单流转、支付确认与交付跟踪。" />
               <FooterStat icon={<ShieldCheck size={18} />} title="平台审核" text="建立统一审核机制，提升上线内容质量与可信度。" />
@@ -227,22 +271,21 @@ export default function AppShell() {
             <div className="grid gap-8 lg:grid-cols-[1.3fr_0.7fr]">
               <div>
                 <div className="flex items-center gap-3">
-                  <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-[20px] border border-slate-200 bg-white shadow-sm">
+                  <div className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-[22px] border border-slate-200 bg-white shadow-sm">
                     <img src={BRAND_LOGO_SRC} alt="恒河沙智能体交易网" className="h-full w-full object-contain p-0.5" />
                   </div>
-                  <div className="font-display text-lg font-semibold text-ink">恒河沙智能体交易网</div>
+                  <div className="font-display text-xl font-semibold tracking-[-0.04em] text-ink">恒河沙智能体交易网</div>
                 </div>
-                <p className="mt-3 max-w-2xl text-sm leading-7 text-ink/60">
-                  面向高校团队、企业客户与平台管理者的智能体成果展示与服务协作平台。当前版本支持项目广场、
-                  模板中心、企业需求提交、高校团队入驻与订单管理等核心链路。
+                <p className="mt-3 max-w-2xl text-sm leading-7 text-ink/58">
+                  面向高校团队、企业客户与平台管理者的智能体成果展示与服务协作平台。当前版本支持项目广场、模板中心、企业需求提交、高校团队入驻与订单管理等核心链路。
                 </p>
               </div>
 
               <div className="grid gap-3 sm:grid-cols-2">
-                <FooterMiniLink to="/agents" label="项目广场" description="浏览已上线项目" />
+                <FooterMiniLink to="/agents" label="智能体库" description="浏览已上线项目" />
                 <FooterMiniLink to="/templates" label="模板中心" description="按模板快速采购" />
                 <FooterMiniLink to="/cases" label="成功案例" description="了解落地场景" />
-                <FooterMiniLink to="/progress" label="建设进展" description="查看平台保障机制" />
+                <FooterMiniLink to="/progress" label="平台进展" description="查看保障机制" />
                 <FooterMiniLink to="/school/upload" label="高校入驻" description="提交团队与项目" />
               </div>
             </div>
@@ -259,7 +302,7 @@ function AppNavLink({ to, children }) {
       to={to}
       className={({ isActive }) =>
         `rounded-full px-4 py-2.5 text-sm font-medium transition ${
-          isActive ? "bg-slate-100 text-ink" : "text-ink/64 hover:text-ink"
+          isActive ? "bg-ink text-white shadow-sm" : "text-ink/64 hover:bg-white hover:text-ink"
         }`
       }
     >
@@ -270,19 +313,19 @@ function AppNavLink({ to, children }) {
 
 function FooterStat({ icon, title, text }) {
   return (
-    <div className="rounded-[22px] border border-slate-200 bg-slate-50/90 p-5">
+    <div className="rounded-[24px] border border-slate-200 bg-white p-5">
       <div className="flex items-center gap-2 text-sm font-semibold text-ink">
         <span className="text-sky">{icon}</span>
         {title}
       </div>
-      <p className="mt-3 text-sm leading-7 text-ink/60">{text}</p>
+      <p className="mt-3 text-sm leading-7 text-ink/58">{text}</p>
     </div>
   );
 }
 
 function FooterMiniLink({ to, label, description }) {
   return (
-    <NavLink to={to} className="rounded-[20px] border border-slate-200 bg-white px-4 py-4 transition hover:-translate-y-0.5">
+    <NavLink to={to} className="rounded-[22px] border border-slate-200 bg-white px-4 py-4 transition hover:-translate-y-0.5">
       <div className="text-sm font-semibold text-ink">{label}</div>
       <div className="mt-1 text-sm text-ink/56">{description}</div>
     </NavLink>
